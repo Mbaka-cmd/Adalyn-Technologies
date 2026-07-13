@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Smart Proposal Generator | Adalyn Technologies Limited</title>
+  <meta name="description" content="Generate a professional, client-ready project proposal with cover page, scope, deliverables, timeline, cost breakdown, and terms - export as PDF instantly.">
+  <link rel="canonical" href="https://mbaka-cmd.github.io/Adalyn-Technologies/proposal_generator.html">
+  <meta property="og:title" content="Smart Proposal Generator | Adalyn Technologies Limited">
+  <meta property="og:description" content="Generate a professional, client-ready project proposal with cover page, scope, deliverables, timeline, cost breakdown, and terms - export as PDF instantly.">
+  <meta property="og:url" content="https://mbaka-cmd.github.io/Adalyn-Technologies/proposal_generator.html">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700;9..144,800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+</head>
+<body>
+  <div class="topbar">
+    <div class="container">
+      <div class="topbar-left">
+        <a href="mailto:official.mercymbaka@gmail.com"><i class="fas fa-envelope" style="margin-right:5px;"></i>official.mercymbaka@gmail.com</a>
+        <a href="tel:0748077609"><i class="fas fa-phone" style="margin-right:5px;"></i>0748077609</a>
+      </div>
+      <div class="topbar-right">
+        <a href="https://github.com/Mbaka-cmd" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+        <a href="https://wa.me/254748077609" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+        <a href="https://www.linkedin.com/in/mercy-mbaka-4b4036354" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+      </div>
+    </div>
+  </div>
+
+  <nav class="main-nav">
+    <div class="container">
+      <div class="nav-inner">
+        <a href="index.html" class="nav-logo">
+          <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+            <rect width="48" height="48" rx="10" fill="#0f172a"/>
+            <text x="24" y="34" text-anchor="middle" font-family="Georgia,serif" font-weight="700" font-size="22" fill="#d4a853">A</text>
+          </svg>
+          <div class="nav-logo-text">
+            <strong>Adalyn Technologies</strong>
+            <span>Limited</span>
+          </div>
+        </a>
+
+        <ul class="nav-links" id="navLinks">
+          <li><a href="index.html" class="nav-link-item">Home</a></li>
+          <li><a href="about.html" class="nav-link-item">About</a></li>
+          <li>
+            <a href="solutions.html" class="nav-link-item">Solutions <i class="fas fa-chevron-down chevron"></i></a>
+            <div class="dropdown-menu">
+              <a href="student_services.html">Student Services</a>
+              <a href="solutions.html#startup">Startup Solutions</a>
+              <a href="solutions.html#business">Business Solutions</a>
+              <a href="solutions.html#education">Education Solutions</a>
+              <a href="solutions.html#enterprise">Enterprise Solutions</a>
+              <a href="solutions.html#developer">Developer Services</a>
+              <a href="solutions.html#cloud">Cloud & M-Pesa</a>
+              <a href="proposal_generator.html">Proposal Generator</a>
+            </div>
+          </li>
+          <li><a href="industries.html" class="nav-link-item">Industries</a></li>
+          <li><a href="portfolio.html" class="nav-link-item">Portfolio</a></li>
+          <li><a href="pricing.html" class="nav-link-item">Pricing</a></li>
+          <li><a href="insights.html" class="nav-link-item">Insights</a></li>
+          <li><a href="contact.html" class="nav-link-item">Contact</a></li>
+          <li><a href="https://wa.me/254748077609" target="_blank" class="nav-cta-link">Hire Us</a></li>
+        </ul>
+
+        <button class="hamburger" id="hamburgerBtn" aria-label="Toggle menu">
+          <i class="fas fa-bars" id="hamburgerIcon"></i>
+        </button>
+      </div>
+
+      <div class="mobile-nav-panel" id="mobileNavPanel">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <div class="mobile-nav-group-label">Solutions</div>
+        <a href="student_services.html">Student Services</a>
+        <a href="solutions.html#startup">Startup Solutions</a>
+        <a href="solutions.html#business">Business Solutions</a>
+        <a href="solutions.html#education">Education Solutions</a>
+        <a href="solutions.html#enterprise">Enterprise Solutions</a>
+        <a href="solutions.html#developer">Developer Services</a>
+        <a href="solutions.html#cloud">Cloud & M-Pesa</a>
+        <a href="proposal_generator.html">Proposal Generator</a>
+        <div class="mobile-nav-group-label">Company</div>
+        <a href="industries.html">Industries</a>
+        <a href="portfolio.html">Portfolio</a>
+        <a href="pricing.html">Pricing</a>
+        <a href="insights.html">Insights</a>
+        <a href="contact.html">Contact</a>
+        <a href="https://wa.me/254748077609" target="_blank" style="color: var(--gold3); margin-top:8px;">Hire Us via WhatsApp</a>
+      </div>
+    </div>
+  </nav>
+
+  <section class="page-hero">
+    <div class="container">
+      <div class="breadcrumb"><a href="index.html">Home</a> / <a href="pricing.html">Pricing</a> / Proposal Generator</div>
+      <h1>Smart Proposal Generator</h1>
+      <p>Fill in the project details below and generate a professional, client-ready proposal - cover page, scope, deliverables, timeline, cost breakdown, terms and signature section - exportable as a PDF in seconds.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="split-panel" style="grid-template-columns: 1fr 1.3fr; align-items:start; gap:34px;">
+
+        <!-- FORM -->
+        <div class="panel-card">
+          <h3>Project Details</h3>
+          <p style="margin-bottom:8px;">This information fills the proposal preview on the right. Nothing is saved or sent anywhere - it stays in your browser.</p>
+
+          <div style="margin-bottom:14px;">
+            <label class="pg-label">Client / Organization Name</label>
+            <input type="text" id="pgClient" class="pg-input" placeholder="e.g. Chuka Girls Secondary School">
+          </div>
+          <div style="margin-bottom:14px;">
+            <label class="pg-label">Project Title</label>
+            <input type="text" id="pgTitle" class="pg-input" placeholder="e.g. School Fee Management & M-Pesa Integration System">
+          </div>
+          <div style="margin-bottom:14px;">
+            <label class="pg-label">Prepared By</label>
+            <input type="text" id="pgPreparedBy" class="pg-input" value="Adalyn Technologies Limited">
+          </div>
+          <div style="margin-bottom:14px;">
+            <label class="pg-label">Proposal Date</label>
+            <input type="date" id="pgDate" class="pg-input">
+          </div>
+
+          <div style="margin-bottom:14px;">
+            <label class="pg-label">Project Scope / Overview</label>
+            <textarea id="pgScope" class="pg-input" rows="4" placeholder="Describe the problem and what this project will solve..."></textarea>
+          </div>
+
+          <div style="margin-bottom:14px;">
+            <label class="pg-label">Deliverables</label>
+            <div id="pgDeliverables"></div>
+            <button type="button" class="btn btn-outline-navy btn-sm" onclick="pgAddRow('pgDeliverables','e.g. Parent payment portal')" style="margin-top:6px;"><i class="fas fa-plus"></i> Add Deliverable</button>
+          </div>
+
+          <div style="margin-bottom:14px;">
+            <label class="pg-label">Timeline</label>
+            <div id="pgTimeline"></div>
+            <button type="button" class="btn btn-outline-navy btn-sm" onclick="pgAddTimelineRow()" style="margin-top:6px;"><i class="fas fa-plus"></i> Add Milestone</button>
+          </div>
+
+          <div style="margin-bottom:14px;">
+            <label class="pg-label">Cost Breakdown (KES)</label>
+            <div id="pgCosts"></div>
+            <button type="button" class="btn btn-outline-navy btn-sm" onclick="pgAddCostRow()" style="margin-top:6px;"><i class="fas fa-plus"></i> Add Line Item</button>
+          </div>
+
+          <div style="margin-bottom:14px;">
+            <label class="pg-label">Terms</label>
+            <textarea id="pgTerms" class="pg-input" rows="4">50% deposit required to begin work, balance due on delivery. Timeline begins once deposit and requirements are confirmed. Scope changes beyond what is listed here may affect price and timeline. Quotation valid for 30 days.</textarea>
+          </div>
+
+          <div style="margin-bottom:6px;">
+            <label class="pg-label">Signatory Name</label>
+            <input type="text" id="pgSignatory" class="pg-input" placeholder="e.g. Mercy K. Mbaka">
+          </div>
+
+          <button type="button" class="btn btn-gold" style="width:100%;justify-content:center;margin-top:18px;" onclick="pgRender()"><i class="fas fa-sync-alt"></i> Update Proposal Preview</button>
+          <button type="button" class="btn btn-outline-navy" style="width:100%;justify-content:center;margin-top:10px;" onclick="pgExportPDF()"><i class="fas fa-file-pdf"></i> Export as PDF</button>
+        </div>
+
+        <!-- PREVIEW -->
+        <div>
+          <div id="pgPreview" class="pg-doc">
+            <div class="pg-cover">
+              <div class="pg-cover-logo">A</div>
+              <div class="pg-cover-eyebrow">Project Proposal</div>
+              <h2 id="pvTitle">Project Title Goes Here</h2>
+              <p id="pvClient">Prepared for: Client Name</p>
+              <p class="pg-cover-meta">Prepared by <span id="pvPreparedBy">Adalyn Technologies Limited</span> &middot; <span id="pvDate">-</span></p>
+            </div>
+
+            <div class="pg-doc-section">
+              <h4>Company Profile</h4>
+              <p>Adalyn Technologies Limited is a software engineering company that designs and builds custom digital platforms, business systems, and payment-integrated solutions for organizations across Africa. We partner with our clients as a long-term technology partner, from initial build through ongoing support.</p>
+            </div>
+
+            <div class="pg-doc-section">
+              <h4>Scope of Work</h4>
+              <p id="pvScope">Scope description will appear here once you fill it in on the left.</p>
+            </div>
+
+            <div class="pg-doc-section">
+              <h4>Deliverables</h4>
+              <ul id="pvDeliverables" class="pg-doc-list"></ul>
+            </div>
+
+            <div class="pg-doc-section">
+              <h4>Timeline</h4>
+              <table class="pg-table" id="pvTimeline"><tbody></tbody></table>
+            </div>
+
+            <div class="pg-doc-section">
+              <h4>Cost Breakdown</h4>
+              <table class="pg-table" id="pvCosts">
+                <thead><tr><th>Item</th><th style="text-align:right;">Amount (KES)</th></tr></thead>
+                <tbody></tbody>
+                <tfoot><tr><td><strong>Total</strong></td><td style="text-align:right;"><strong id="pvTotal">KES 0</strong></td></tr></tfoot>
+              </table>
+            </div>
+
+            <div class="pg-doc-section">
+              <h4>Terms</h4>
+              <p id="pvTerms"></p>
+            </div>
+
+            <div class="pg-doc-section pg-signature">
+              <div>
+                <div class="pg-sig-line"></div>
+                <span id="pvSignatory">Signatory Name</span><br>
+                <small>Adalyn Technologies Limited</small>
+              </div>
+              <div>
+                <div class="pg-sig-line"></div>
+                <span>Client Signature</span><br>
+                <small id="pvClient2">Client Name</small>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="container">
+      <h2>Prefer We Draft It for You?</h2>
+      <p>Send us your project details and we'll prepare a full written proposal for your review.</p>
+      <div class="cta-actions">
+        <a href="contact.html" class="btn btn-gold"><i class="fas fa-comment-dots"></i> Request a Proposal</a>
+      </div>
+    </div>
+  </section>
+
+  <style>
+    .pg-label { display:block; font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:.4px; color:var(--gray2); margin-bottom:6px; }
+    .pg-input { width:100%; padding:10px 14px; border:1px solid rgba(212,168,83,0.35); border-radius:8px; font-family:var(--font-b); font-size:14px; margin-bottom:2px; }
+    .pg-row { display:flex; gap:8px; margin-bottom:8px; align-items:center; }
+    .pg-row input { flex:1; }
+    .pg-row-remove { background:none; border:none; color:#c0526a; cursor:pointer; font-size:15px; padding:4px 8px; }
+    .pg-doc { background:#fff; border:1px solid rgba(212,168,83,0.25); border-radius:14px; box-shadow:var(--shadow); padding:0; overflow:hidden; }
+    .pg-cover { background: linear-gradient(135deg, var(--navy) 0%, #1a2744 100%); color:#fff; padding:46px 40px; text-align:center; }
+    .pg-cover-logo { width:52px; height:52px; border-radius:12px; background:var(--gold); color:var(--navy); font-family:var(--font-d); font-weight:700; font-size:26px; display:flex; align-items:center; justify-content:center; margin:0 auto 18px; }
+    .pg-cover-eyebrow { font-size:12px; text-transform:uppercase; letter-spacing:2px; color:var(--gold2); margin-bottom:10px; }
+    .pg-cover h2 { font-size:26px; margin-bottom:10px; }
+    .pg-cover-meta { font-size:12.5px; color:rgba(255,255,255,0.6); margin-top:10px; }
+    .pg-doc-section { padding:26px 40px; border-bottom:1px solid rgba(212,168,83,0.18); }
+    .pg-doc-section:last-child { border-bottom:none; }
+    .pg-doc-section h4 { font-size:13px; text-transform:uppercase; letter-spacing:.6px; color:var(--gold3); margin-bottom:12px; }
+    .pg-doc-section p { font-size:14px; color:var(--navy2); line-height:1.7; }
+    .pg-doc-list { list-style:none; display:flex; flex-direction:column; gap:8px; }
+    .pg-doc-list li { display:flex; gap:10px; font-size:14px; color:var(--navy2); }
+    .pg-doc-list li::before { content:'\2713'; color:var(--gold3); font-weight:700; }
+    .pg-table { width:100%; border-collapse:collapse; }
+    .pg-table th, .pg-table td { padding:9px 4px; font-size:13.5px; border-bottom:1px solid rgba(212,168,83,0.15); text-align:left; color:var(--navy2); }
+    .pg-table tfoot td { border-top:2px solid rgba(212,168,83,0.35); border-bottom:none; padding-top:12px; }
+    .pg-signature { display:grid; grid-template-columns:1fr 1fr; gap:30px; }
+    .pg-sig-line { border-bottom:1px solid var(--navy2); height:40px; margin-bottom:6px; }
+    @media (max-width: 1024px) { .split-panel[style] { grid-template-columns: 1fr !important; } }
+  </style>
+
+  <script>
+    function pgAddRow(containerId, placeholder) {
+      const c = document.getElementById(containerId);
+      const row = document.createElement('div');
+      row.className = 'pg-row';
+      row.innerHTML = `<input type="text" class="pg-input pg-deliverable" placeholder="${placeholder}"><button type="button" class="pg-row-remove" onclick="this.parentElement.remove()"><i class="fas fa-times"></i></button>`;
+      c.appendChild(row);
+    }
+    function pgAddTimelineRow() {
+      const c = document.getElementById('pgTimeline');
+      const row = document.createElement('div');
+      row.className = 'pg-row';
+      row.innerHTML = `<input type="text" class="pg-input pg-tl-phase" placeholder="Phase e.g. Discovery & Planning" style="flex:2;"><input type="text" class="pg-input pg-tl-duration" placeholder="Duration e.g. Week 1" style="flex:1;"><button type="button" class="pg-row-remove" onclick="this.parentElement.remove()"><i class="fas fa-times"></i></button>`;
+      c.appendChild(row);
+    }
+    function pgAddCostRow() {
+      const c = document.getElementById('pgCosts');
+      const row = document.createElement('div');
+      row.className = 'pg-row';
+      row.innerHTML = `<input type="text" class="pg-input pg-cost-item" placeholder="Item e.g. Backend Development" style="flex:2;"><input type="number" class="pg-input pg-cost-amount" placeholder="Amount" style="flex:1;"><button type="button" class="pg-row-remove" onclick="this.parentElement.remove()"><i class="fas fa-times"></i></button>`;
+      c.appendChild(row);
+    }
+
+    function pgRender() {
+      const client = document.getElementById('pgClient').value.trim() || 'Client Name';
+      const title = document.getElementById('pgTitle').value.trim() || 'Project Title';
+      const preparedBy = document.getElementById('pgPreparedBy').value.trim() || 'Adalyn Technologies Limited';
+      const dateVal = document.getElementById('pgDate').value;
+      const scope = document.getElementById('pgScope').value.trim() || 'Scope description will appear here once you fill it in on the left.';
+      const terms = document.getElementById('pgTerms').value.trim();
+      const signatory = document.getElementById('pgSignatory').value.trim() || 'Signatory Name';
+
+      document.getElementById('pvTitle').textContent = title;
+      document.getElementById('pvClient').textContent = 'Prepared for: ' + client;
+      document.getElementById('pvClient2').textContent = client;
+      document.getElementById('pvPreparedBy').textContent = preparedBy;
+      document.getElementById('pvDate').textContent = dateVal ? new Date(dateVal).toDateString() : new Date().toDateString();
+      document.getElementById('pvScope').textContent = scope;
+      document.getElementById('pvTerms').textContent = terms;
+      document.getElementById('pvSignatory').textContent = signatory;
+
+      const delivList = document.getElementById('pvDeliverables');
+      delivList.innerHTML = '';
+      document.querySelectorAll('.pg-deliverable').forEach(inp => {
+        if (inp.value.trim()) {
+          const li = document.createElement('li');
+          li.textContent = inp.value.trim();
+          delivList.appendChild(li);
+        }
+      });
+      if (!delivList.children.length) delivList.innerHTML = '<li>Deliverables will appear here once added.</li>';
+
+      const tlBody = document.querySelector('#pvTimeline tbody');
+      tlBody.innerHTML = '';
+      const phases = document.querySelectorAll('.pg-tl-phase');
+      const durations = document.querySelectorAll('.pg-tl-duration');
+      phases.forEach((p, i) => {
+        if (p.value.trim()) {
+          const tr = document.createElement('tr');
+          tr.innerHTML = `<td>${p.value.trim()}</td><td style="text-align:right;">${(durations[i] && durations[i].value.trim()) || '-'}</td>`;
+          tlBody.appendChild(tr);
+        }
+      });
+      if (!tlBody.children.length) tlBody.innerHTML = '<tr><td colspan="2">Timeline milestones will appear here once added.</td></tr>';
+
+      const costBody = document.querySelector('#pvCosts tbody');
+      costBody.innerHTML = '';
+      let total = 0;
+      const items = document.querySelectorAll('.pg-cost-item');
+      const amounts = document.querySelectorAll('.pg-cost-amount');
+      items.forEach((it, i) => {
+        const amt = parseFloat(amounts[i] && amounts[i].value) || 0;
+        if (it.value.trim()) {
+          total += amt;
+          const tr = document.createElement('tr');
+          tr.innerHTML = `<td>${it.value.trim()}</td><td style="text-align:right;">KES ${amt.toLocaleString()}</td>`;
+          costBody.appendChild(tr);
+        }
+      });
+      if (!costBody.children.length) costBody.innerHTML = '<tr><td colspan="2">Cost line items will appear here once added.</td></tr>';
+      document.getElementById('pvTotal').textContent = 'KES ' + total.toLocaleString();
+    }
+
+    function pgExportPDF() {
+      pgRender();
+      const el = document.getElementById('pgPreview');
+      const opt = {
+        margin: 0,
+        filename: 'Adalyn-Technologies-Proposal.pdf',
+        image: { type: 'jpeg', quality: 0.98 },
+        html2canvas: { scale: 2 },
+        jsPDF: { unit: 'pt', format: 'a4', orientation: 'portrait' }
+      };
+      if (window.html2pdf) {
+        html2pdf().set(opt).from(el).save();
+      } else {
+        alert('PDF export is loading, please try again in a moment.');
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      pgAddRow('pgDeliverables', 'e.g. Parent payment portal');
+      pgAddRow('pgDeliverables', 'e.g. Admin dashboard with reporting');
+      pgAddTimelineRow();
+      pgAddCostRow();
+      document.getElementById('pgDate').valueAsDate = new Date();
+      pgRender();
+    });
+  </script>
+
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div style="display:flex;align-items:center;gap:10px;margin-bottom:4px;">
+            <svg width="36" height="36" viewBox="0 0 48 48"><rect width="48" height="48" rx="10" fill="#d4a853"/><text x="24" y="34" text-anchor="middle" font-family="Georgia,serif" font-weight="700" font-size="22" fill="#0f172a">A</text></svg>
+            <strong style="font-family:var(--font-d);font-size:17px;color:#fff;">Adalyn Technologies</strong>
+          </div>
+          <p>Engineering software that moves businesses forward. We design and build production-grade platforms, school management systems, business automation, and payment-integrated solutions for organizations across Africa.</p>
+          <div class="footer-social">
+            <a href="https://github.com/Mbaka-cmd" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+            <a href="https://wa.me/254748077609" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+            <a href="https://www.linkedin.com/in/mercy-mbaka-4b4036354" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            <a href="mailto:official.mercymbaka@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <a href="index.html">Home</a>
+          <a href="about.html">About</a>
+          <a href="portfolio.html">Portfolio</a>
+          <a href="insights.html">Insights</a>
+          <a href="contact.html">Contact</a>
+        </div>
+        <div class="footer-col">
+          <h4>Solutions</h4>
+          <a href="student_services.html">Student Services</a>
+          <a href="solutions.html#startup">Startup Solutions</a>
+          <a href="solutions.html#business">Business Solutions</a>
+          <a href="solutions.html#education">Education Solutions</a>
+          <a href="solutions.html#enterprise">Enterprise Solutions</a>
+          <a href="pricing.html">Pricing</a>
+        </div>
+        <div class="footer-col">
+          <h4>Resources</h4>
+          <a href="industries.html">Industries</a>
+          <a href="pricing.html">Rate Card</a>
+          <a href="proposal_generator.html">Proposal Generator</a>
+          <a href="https://mbaka-cmd.github.io/MERCY-MBAKA-PORTIFOLIO/" target="_blank">Developer Portfolio</a>
+          <a href="https://wa.me/254748077609" target="_blank">Company Profile</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Adalyn Technologies Limited. All rights reserved.</p>
+        <p>Built by <a href="https://mbaka-cmd.github.io/MERCY-MBAKA-PORTIFOLIO/">Mercy K. Mbaka</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+
+</body>
+</html>

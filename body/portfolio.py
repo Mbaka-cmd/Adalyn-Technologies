@@ -1,0 +1,145 @@
+BODY = """  <section class="page-hero">
+    <div class="container">
+      <div class="breadcrumb"><a href="index.html">Home</a> / Portfolio</div>
+      <h1>Real Systems, Real Results</h1>
+      <p>Case studies from systems we've built and deployed - live in production, not mockups.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="portfolio-filters">
+        <button class="filter-btn active">All</button>
+        <button class="filter-btn">SaaS</button>
+        <button class="filter-btn">Agritech</button>
+        <button class="filter-btn">Business Tools</button>
+        <button class="filter-btn">EdTech</button>
+      </div>
+      <div class="portfolio-grid">
+        <div class="portfolio-card anim">
+          <div class="portfolio-thumb">
+            <img src="./chuka g dashboard.jpg" alt="School Management SaaS" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <div class="portfolio-fallback"><i class="fas fa-school"></i></div>
+          </div>
+          <div class="portfolio-info">
+            <div class="portfolio-tag">SaaS Platform - Live</div>
+            <h3>School Management SaaS System</h3>
+            <p>Multi-tenant platform serving 1,000+ students across 4 portals, with M-Pesa payments and automated PDF reporting.</p>
+            <div class="case-detail">
+              <div class="case-detail-item"><strong>Challenge</strong><span>Manual fee collection caused disputes and lost records.</span></div>
+              <div class="case-detail-item"><strong>Solution</strong><span>Multi-tenant portal with M-Pesa STK Push and role-based access.</span></div>
+              <div class="case-detail-item"><strong>Outcome</strong><span>70% fewer payment disputes, 500+ PDF reports generated per term.</span></div>
+              <div class="case-detail-item"><strong>Tech</strong><span>Django, PostgreSQL, M-Pesa Daraja API, Docker.</span></div>
+            </div>
+            <div style="margin-top:14px;"><a href="https://school-management-system-final-1.onrender.com/" target="_blank" class="portfolio-link">Open Live System <i class="fas fa-arrow-right"></i></a></div>
+          </div>
+        </div>
+
+        <div class="portfolio-card anim">
+          <div class="portfolio-thumb"><div class="portfolio-fallback" style="display:flex;"><i class="fas fa-egg"></i></div></div>
+          <div class="portfolio-info">
+            <div class="portfolio-tag">Agritech - Live</div>
+            <h3>Joan Kuku Farm</h3>
+            <p>Poultry catalogue with cart, WhatsApp order flow, and M-Pesa integration for 700+ customers.</p>
+            <div class="case-detail">
+              <div class="case-detail-item"><strong>Challenge</strong><span>Orders were handled informally through WhatsApp chaos.</span></div>
+              <div class="case-detail-item"><strong>Solution</strong><span>Product catalogue, cart, and structured WhatsApp order handoff.</span></div>
+              <div class="case-detail-item"><strong>Outcome</strong><span>A professional ordering experience for 700+ customers.</span></div>
+              <div class="case-detail-item"><strong>Tech</strong><span>Static site, JavaScript cart logic, WhatsApp & M-Pesa integration.</span></div>
+            </div>
+            <div style="margin-top:14px;"><a href="https://mbaka-cmd.github.io/joan-kuku-farm/" target="_blank" class="portfolio-link">Open Live Site <i class="fas fa-arrow-right"></i></a></div>
+          </div>
+        </div>
+
+        <div class="portfolio-card anim">
+          <div class="portfolio-thumb"><div class="portfolio-fallback" style="display:flex;"><i class="fas fa-file-invoice"></i></div></div>
+          <div class="portfolio-info">
+            <div class="portfolio-tag">Business Tool - Live</div>
+            <h3>Adalyn Sales System</h3>
+            <p>Rate card, invoice maker, quotation builder, and client records - all downloadable as PDFs.</p>
+            <div class="case-detail">
+              <div class="case-detail-item"><strong>Challenge</strong><span>Quotations were built manually for every client meeting.</span></div>
+              <div class="case-detail-item"><strong>Solution</strong><span>A self-serve quotation and invoicing tool with PDF export.</span></div>
+              <div class="case-detail-item"><strong>Outcome</strong><span>Quotations generated in under a minute, sent straight to WhatsApp.</span></div>
+              <div class="case-detail-item"><strong>Tech</strong><span>JavaScript, client-side PDF generation.</span></div>
+            </div>
+            <div style="margin-top:14px;"><a href="https://mbaka-cmd.github.io/Adalyn-Technologies/" target="_blank" class="portfolio-link">Open Live Tool <i class="fas fa-arrow-right"></i></a></div>
+          </div>
+        </div>
+
+        <div class="portfolio-card anim">
+          <div class="portfolio-thumb"><div class="portfolio-fallback" style="display:flex;"><i class="fas fa-chalkboard-teacher"></i></div></div>
+          <div class="portfolio-info">
+            <div class="portfolio-tag">EdTech - Ongoing</div>
+            <h3>KidLearn EdTech Platform</h3>
+            <p>Home-schooling platform with lesson tabs, progress tracking, and curriculum-aligned content for children.</p>
+            <span class="portfolio-link" style="color:var(--gray2); cursor:default;">In Active Development</span>
+          </div>
+        </div>
+
+        <div class="portfolio-card anim">
+          <div class="portfolio-thumb">
+            <img src="./chuka g dashboard.jpg" alt="Chuka Girls" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <div class="portfolio-fallback"><i class="fas fa-school"></i></div>
+          </div>
+          <div class="portfolio-info">
+            <div class="portfolio-tag">School Management - Case Study</div>
+            <h3>Chuka Girls Secondary School</h3>
+            <p>Tailored deployment: student records, fee management, library module, attendance, and admin workflows.</p>
+            <span class="portfolio-link" style="color:var(--gray2); cursor:default;"><i class="fas fa-lock"></i> Client Deployment</span>
+          </div>
+        </div>
+
+        <div class="portfolio-card anim">
+          <div class="portfolio-thumb"><div class="portfolio-fallback" style="display:flex;"><i class="fas fa-plus-circle"></i></div></div>
+          <div class="portfolio-info">
+            <div class="portfolio-tag">Your Project</div>
+            <h3>Next Client Project</h3>
+            <p>Have a system in mind? School ERP, SACCO, hospital management, CRM, or a business website - let's build it.</p>
+            <a href="https://wa.me/254748077609" target="_blank" class="portfolio-link">Start a Conversation <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-cream">
+    <div class="container">
+      <div class="section-header section-center">
+        <span class="section-label">Testimonials</span>
+        <h2 class="section-title">What Clients Say</h2>
+      </div>
+      <div class="testimonials-grid">
+        <div class="tcard anim">
+          <div class="tcard-stars">★★★★★</div>
+          <p class="tcard-text">"The school system completely replaced our manual fee process. Parents can pay via M-Pesa in seconds and we get instant confirmation. Payment disputes dropped immediately."</p>
+          <div class="tcard-author">School Administrator</div>
+          <div class="tcard-role">Secondary School, Kenya</div>
+        </div>
+        <div class="tcard anim">
+          <div class="tcard-stars">★★★★★</div>
+          <p class="tcard-text">"The farm website gave our customers a professional way to browse and order. We went from informal WhatsApp chaos to a proper catalogue with cart and order tracking."</p>
+          <div class="tcard-author">Joan Wapolly</div>
+          <div class="tcard-role">Joan Kuku Farm, Chuka, Kenya</div>
+        </div>
+        <div class="tcard anim">
+          <div class="tcard-stars">★★★★★</div>
+          <p class="tcard-text">"The rate card and invoice tool saves me time in every client meeting. I can generate a proper quotation on the spot and send it to WhatsApp in under a minute."</p>
+          <div class="tcard-author">Freelance Developer</div>
+          <div class="tcard-role">Nairobi, Kenya</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="container">
+      <h2>Want Results Like This?</h2>
+      <p>Tell us about your project and we'll walk you through what a similar build would look like for you.</p>
+      <div class="cta-actions">
+        <a href="contact.html" class="btn btn-gold"><i class="fas fa-comment-dots"></i> Start Your Project</a>
+        <a href="pricing.html" class="btn btn-outline-light"><i class="fas fa-file-invoice"></i> View Pricing</a>
+      </div>
+    </div>
+  </section>
+"""
