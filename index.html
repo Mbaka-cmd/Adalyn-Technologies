@@ -14,6 +14,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700;9..144,800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
   <style>
     :root {
       --navy:   #0f172a;
@@ -203,7 +204,7 @@
     /* HERO */
     .hero {
       min-height: 88vh;
-      background: linear-gradient(135deg, var(--navy) 0%, #1a2744 100%);
+      background: linear-gradient(rgba(15,23,42,0.75), rgba(15,23,42,0.75)), url('background.jpg') center/cover no-repeat;
       color: #fff;
       display: flex; align-items: center;
       position: relative; overflow: hidden;
@@ -434,7 +435,7 @@
     .faq-item.open .faq-a { max-height: 300px; }
 
     /* CTA */
-    .cta-section { background: linear-gradient(135deg, var(--navy) 0%, #1a2744 100%); text-align: center; padding: 100px 0; position: relative; overflow: hidden; }
+    .cta-section { background: linear-gradient(rgba(15,23,42,0.75), rgba(15,23,42,0.75)), url('background.jpg') center/cover no-repeat; text-align: center; padding: 100px 0; position: relative; overflow: hidden; }
     .cta-section::before { content: ''; position: absolute; width: 600px; height: 600px; background: radial-gradient(circle, rgba(212,168,83,0.1) 0%, transparent 65%); top: -200px; right: -200px; }
     .cta-section h2 { font-size: 42px; color: #fff; margin-bottom: 16px; }
     .cta-section p { font-size: 18px; color: rgba(255,255,255,0.8); max-width: 600px; margin: 0 auto 38px; }

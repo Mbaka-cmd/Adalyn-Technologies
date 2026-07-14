@@ -599,3 +599,24 @@
   .footer-brand p { font-size: 13px; margin: 8px 0 12px; }
   .footer-bottom { padding-top: 16px; font-size: 12px; }
 }
+
+/* Tighter footer on home page specifically */
+footer { padding-top: 40px; padding-bottom: 20px; }
+.footer-grid { margin-bottom: 20px; }
+.footer-col a { margin-bottom: 8px; }
+
+/* Hero background image */
+.hero {
+  background: linear-gradient(rgba(15,23,42,0.75), rgba(15,23,42,0.75)), url('background.jpg') center/cover no-repeat !important;
+}
+.page-hero {
+  background: linear-gradient(rgba(15,23,42,0.8), rgba(15,23,42,0.8)), url('background.jpg') center/cover no-repeat !important;
+}
+
+/* Hero background image */
+.hero {
+  background: linear-gradient(rgba(15,23,42,0.75), rgba(15,23,42,0.75)), url('background.jpg') center/cover no-repeat !important;
+}
+.page-hero {
+  background: linear-gradient(rgba(15,23,42,0.8), rgba(15,23,42,0.8)), url('background.jpg') center/cover no-repeat !important;
+}
