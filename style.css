@@ -588,3 +588,14 @@
 }
 .article-modal p { margin-bottom: 14px; line-height: 1.6; }
 .article-modal h3 { margin: 24px 0 12px; }
+
+/* Mobile spacing fixes */
+@media (max-width: 640px) {
+  .hero { min-height: auto; padding-top: 32px; padding-bottom: 48px; }
+  footer { padding: 32px 0 20px; }
+  .footer-grid { gap: 20px; }
+  .footer-col h4 { margin-bottom: 10px; font-size: 14px; }
+  .footer-col a { margin-bottom: 6px; font-size: 13px; }
+  .footer-brand p { font-size: 13px; margin: 8px 0 12px; }
+  .footer-bottom { padding-top: 16px; font-size: 12px; }
+}

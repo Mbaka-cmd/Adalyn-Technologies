@@ -92,3 +92,15 @@ function sendViaWhatsApp() {
   const text = `Hi Adalyn Technologies,\n\nName: ${name}${contact ? '\nContact: ' + contact : ''}\n\n${message}`;
   window.open(`https://wa.me/254748077609?text=${encodeURIComponent(text)}`, '_blank');
 }
+
+  /* Mobile Solutions collapsible group */
+  const mSolToggle = document.getElementById('mobileSolutionsToggle');
+  const mSolList = document.getElementById('mobileSolutionsList');
+  const mSolIcon = document.getElementById('mobileSolutionsIcon');
+  if (mSolToggle && mSolList) {
+    mSolToggle.addEventListener('click', () => {
+      const isOpen = mSolList.style.display === 'block';
+      mSolList.style.display = isOpen ? 'none' : 'block';
+      mSolIcon.style.transform = isOpen ? 'rotate(0deg)' : 'rotate(180deg)';
+    });
+  }
