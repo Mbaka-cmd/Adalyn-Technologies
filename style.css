@@ -5,7 +5,7 @@
       --gold2:  #e8c87a;
       --gold3:  #b8943f;
       --crimson:#f8d9df;
-      --cream:  #fdfaf5;
+      --cream:  #fbdfe4;
       --white:  #ffffff;
       --gray:   #64748b;
       --gray2:  #94a3b8;
@@ -18,7 +18,7 @@
     }
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; font-size: 16px; }
-    body { font-family: var(--font-b); color: var(--text); line-height: 1.6; background: #fff; }
+    body { font-family: var(--font-b); color: var(--text); line-height: 1.6; background: #fbdfe4; }
     a { text-decoration: none; color: inherit; }
     h1,h2,h3,h4,h5 { font-family: var(--font-d); line-height: 1.2; }
     img { max-width: 100%; display: block; }
