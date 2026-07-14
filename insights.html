@@ -121,7 +121,7 @@
             <div class="blog-meta"><span><i class="far fa-calendar"></i> June 2026</span><span>8 min read</span></div>
             <h3>Why Every Backend Developer Should Understand Idempotency Before Building Payment Systems</h3>
             <p>The distributed systems concept that changed how we design every backend - learned the hard way integrating M-Pesa into production.</p>
-            <a href="https://mbaka-cmd.github.io/MERCY-MBAKA-PORTIFOLIO/#" class="blog-read-more">Read Article <i class="fas fa-arrow-right"></i></a>
+            <a href="#" class="blog-read-more" onclick="openArticle('idempotency'); return false;">Read Article <i class="fas fa-arrow-right"></i></a>
           </div>
         </div>
         <div class="blog-card anim">
@@ -236,6 +236,49 @@
       </div>
     </div>
   </footer>
+
+<div class="article-modal-overlay" id="articleModalOverlay" onclick="if(event.target===this) closeArticle();">
+  <div class="article-modal">
+    <button class="article-modal-close" onclick="closeArticle()" aria-label="Close">&times;</button>
+    <div id="articleModalContent"></div>
+  </div>
+</div>
+
+<script>
+  const articles = {
+    idempotency: {
+      title: "Why Every Backend Developer Should Understand Idempotency Before Building Payment Systems",
+      meta: "June 2026 &middot; 8 min read",
+      body: `
+        <blockquote>One of the biggest lessons I learned while integrating M-Pesa wasn't about APIs - it was about a distributed systems concept called idempotency. Once I understood it, it changed how I designed every backend system.</blockquote>
+        <h3>The Theory</h3>
+        <p>In distributed systems, a request can be delivered more than once.</p>
+        <p>Not because the client wants it to.</p>
+        <p>Because networks fail.</p>
+        <p>Imagine you're buying coffee using your mobile banking app. You tap Pay. The money leaves your account. At the exact same moment, your internet connection drops. Your phone never receives confirmation.</p>
+        <p>What do you do? You press Pay again.</p>
+        <p>Did you intend to pay twice? No. But from the server's perspective, it has now received two separate payment requests.</p>
+      `
+    }
+  };
+
+  function openArticle(key) {
+    const article = articles[key];
+    if (!article) return;
+    document.getElementById('articleModalContent').innerHTML = `
+      <div class="article-modal-meta">${article.meta}</div>
+      <h2>${article.title}</h2>
+      ${article.body}
+    `;
+    document.getElementById('articleModalOverlay').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeArticle() {
+    document.getElementById('articleModalOverlay').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+</script>
 
   <script src="main.js"></script>
 

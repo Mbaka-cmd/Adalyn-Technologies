@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ quotation.title }} | Adalyn Technologies</title>
+  <style>
+    :root { --navy:#0f172a; --gold:#d4a853; }
+    body { font-family: -apple-system, Segoe UI, Arial, sans-serif; background:#f8f5ef; color:#0f172a; margin:0; padding:0; }
+    .wrap { max-width:560px; margin:0 auto; padding:32px 20px 60px; }
+    .card { background:#fff; border-radius:14px; padding:28px; box-shadow:0 4px 20px rgba(0,0,0,0.06); margin-bottom:20px; }
+    h1 { font-size:22px; margin:0 0 4px; }
+    .ref { color:#94a3b8; font-size:13px; margin-bottom:20px; }
+    .stage-badge { display:inline-block; padding:6px 14px; border-radius:20px; background:var(--navy); color:#fff; font-size:13px; font-weight:600; margin-bottom:20px; }
+    .progress-track { display:flex; gap:6px; margin-bottom:24px; }
+    .progress-step { flex:1; height:6px; border-radius:3px; background:#e2e8f0; }
+    .progress-step.done { background:var(--gold); }
+    .amount-row { display:flex; justify-content:space-between; padding:10px 0; border-bottom:1px solid #f1f1f1; font-size:14px; }
+    .amount-row.total { font-weight:700; font-size:16px; border-bottom:none; padding-top:14px; }
+    .btn { display:block; width:100%; padding:14px; border-radius:8px; border:none; background:var(--gold); color:var(--navy); font-weight:700; font-size:15px; cursor:pointer; margin-top:16px; }
+    .btn:disabled { opacity:0.6; cursor:not-allowed; }
+    input[type=tel] { width:100%; padding:12px; border-radius:8px; border:1px solid #ddd; font-size:15px; box-sizing:border-box; margin-top:10px; }
+    #payMsg { margin-top:14px; font-size:14px; padding:10px; border-radius:8px; display:none; }
+    #payMsg.success { background:#dcfce7; color:#166534; display:block; }
+    #payMsg.error { background:#fee2e2; color:#991b1b; display:block; }
+    .history-item { display:flex; justify-content:space-between; padding:10px 0; border-bottom:1px solid #f1f1f1; font-size:13px; }
+    .paid-tag { color:#16a34a; font-weight:600; }
+    .all-paid { text-align:center; padding:20px; color:#16a34a; font-weight:600; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="card">
+      <h1>{{ quotation.title }}</h1>
+      <div class="ref">Reference: {{ quotation.reference }}</div>
+
+      {% if project %}
+        <div class="stage-badge">{{ project.get_stage_display }}</div>
+      {% endif %}
+
+      <div class="progress-track">
+        <div class="progress-step {% if amount_paid > 0 %}done{% endif %}"></div>
+        <div class="progress-step {% if project.stage == 'in_progress' or project.stage == 'review' or project.stage == 'awaiting_balance' or project.stage == 'delivered' %}done{% endif %}"></div>
+        <div class="progress-step {% if project.stage == 'delivered' %}done{% endif %}"></div>
+      </div>
+
+      <div class="amount-row"><span>Total Project Cost</span><span>KES {{ quotation.total_amount|floatformat:0 }}</span></div>
+      <div class="amount-row"><span>Deposit ({{ quotation.deposit_percentage }}%)</span><span>KES {{ quotation.deposit_amount|floatformat:0 }}</span></div>
+      <div class="amount-row"><span>Balance on Delivery</span><span>KES {{ quotation.balance_amount|floatformat:0 }}</span></div>
+      <div class="amount-row total"><span>Paid So Far</span><span>KES {{ amount_paid|floatformat:0 }}</span></div>
+    </div>
+
+    <div class="card">
+      {% if next_payment_type %}
+        <h2 style="font-size:16px; margin-top:0;">
+          {% if next_payment_type == "deposit" %}Pay Deposit to Start{% else %}Pay Balance to Complete{% endif %}
+        </h2>
+        <div style="font-size:24px; font-weight:700; color:var(--navy);">KES {{ next_amount|floatformat:0 }}</div>
+        <input type="tel" id="phoneInput" placeholder="e.g. 0712345678" value="{{ quotation.client.phone }}">
+        <button class="btn" id="payBtn" data-reference="{{ quotation.reference }}" data-type="{{ next_payment_type }}">
+          Pay with M-Pesa
+        </button>
+        <div id="payMsg"></div>
+      {% else %}
+        <div class="all-paid">✓ Fully paid. Thank you!</div>
+      {% endif %}
+    </div>
+
+    <div class="card">
+      <h2 style="font-size:16px; margin-top:0;">Payment History</h2>
+      {% for p in payments %}
+        <div class="history-item">
+          <span>{{ p.get_payment_type_display }}</span>
+          <span>
+            KES {{ p.amount|floatformat:0 }}
+            {% if p.status == "completed" %}<span class="paid-tag">✓ Paid</span>{% else %}({{ p.get_status_display }}){% endif %}
+          </span>
+        </div>
+      {% empty %}
+        <p style="color:#94a3b8; font-size:13px;">No payments yet.</p>
+      {% endfor %}
+    </div>
+  </div>
+
+  <script>
+    const btn = document.getElementById('payBtn');
+    if (btn) {
+      btn.addEventListener('click', async () => {
+        const phone = document.getElementById('phoneInput').value.trim();
+        const reference = btn.dataset.reference;
+        const paymentType = btn.dataset.type;
+        const msg = document.getElementById('payMsg');
+
+        if (!phone) {
+          msg.textContent = 'Please enter your phone number.';
+          msg.className = 'error';
+          return;
+        }
+
+        btn.disabled = true;
+        btn.textContent = 'Sending prompt...';
+        msg.className = '';
+        msg.style.display = 'none';
+
+        try {
+          const res = await fetch(`/payments/status/${reference}/pay/`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+            body: `phone_number=${encodeURIComponent(phone)}&payment_type=${paymentType}`
+          });
+          const data = await res.json();
+          if (res.ok) {
+            msg.textContent = data.message;
+            msg.className = 'success';
+            btn.textContent = 'Check your phone';
+          } else {
+            msg.textContent = data.error || 'Something went wrong.';
+            msg.className = 'error';
+            btn.disabled = false;
+            btn.textContent = 'Pay with M-Pesa';
+          }
+        } catch (e) {
+          msg.textContent = 'Network error. Please try again.';
+          msg.className = 'error';
+          btn.disabled = false;
+          btn.textContent = 'Pay with M-Pesa';
+        }
+      });
+    }
+  </script>
+</body>
+</html>

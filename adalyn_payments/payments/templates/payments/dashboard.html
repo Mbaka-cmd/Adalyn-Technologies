@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Payments Dashboard | Adalyn Technologies</title>
+  <style>
+    body { font-family: -apple-system, Segoe UI, Arial, sans-serif; background:#0f172a; color:#e2e8f0; margin:0; padding:32px; }
+    h1 { color:#fff; margin-bottom:24px; }
+    table { width:100%; border-collapse: collapse; background:#1e293b; border-radius:10px; overflow:hidden; }
+    th, td { padding:12px 16px; text-align:left; border-bottom:1px solid #334155; font-size:14px; }
+    th { background:#0f172a; color:#94a3b8; text-transform:uppercase; font-size:12px; letter-spacing:0.5px; }
+    tr:hover { background:#334155; }
+    .badge { padding:3px 10px; border-radius:20px; font-size:12px; font-weight:600; }
+    .badge-draft { background:#475569; color:#e2e8f0; }
+    .badge-sent { background:#1e40af; color:#dbeafe; }
+    .badge-accepted { background:#166534; color:#dcfce7; }
+    .badge-declined { background:#991b1b; color:#fee2e2; }
+    .badge-expired { background:#78350f; color:#fef3c7; }
+    .paid-row { color:#4ade80; font-weight:600; }
+    a.ref-link { color:#d4a853; text-decoration:none; }
+    a.ref-link:hover { text-decoration:underline; }
+    .summary { display:flex; gap:16px; margin-bottom:24px; }
+    .stat-card { background:#1e293b; border-radius:10px; padding:20px 24px; flex:1; }
+    .stat-card .num { font-size:28px; font-weight:700; color:#d4a853; }
+    .stat-card .label { font-size:13px; color:#94a3b8; margin-top:4px; }
+  </style>
+</head>
+<body>
+  <h1>Payments Dashboard</h1>
+
+  <div class="summary">
+    <div class="stat-card">
+      <div class="num">{{ quotations.count }}</div>
+      <div class="label">Total Quotations</div>
+    </div>
+  </div>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Reference</th>
+        <th>Client</th>
+        <th>Project</th>
+        <th>Total (KES)</th>
+        <th>Deposit Paid</th>
+        <th>Balance Paid</th>
+        <th>Stage</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for q in quotations %}
+      <tr>
+        <td><a class="ref-link" href="{% url 'payments:client_status' q.reference %}" target="_blank">{{ q.reference }}</a></td>
+        <td>{{ q.client.name }}<br><small style="color:#94a3b8;">{{ q.client.phone }}</small></td>
+        <td>{{ q.title }}</td>
+        <td>{{ q.total_amount|floatformat:0 }}</td>
+        <td>
+          {% with deposit_payment=q.payments.all|dictsort:"payment_type" %}
+          {% for p in q.payments.all %}
+            {% if p.payment_type == "deposit" and p.status == "completed" %}
+              <span class="paid-row">✓ KES {{ p.amount|floatformat:0 }}</span>
+            {% endif %}
+          {% endfor %}
+          {% endwith %}
+        </td>
+        <td>
+          {% for p in q.payments.all %}
+            {% if p.payment_type == "balance" and p.status == "completed" %}
+              <span class="paid-row">✓ KES {{ p.amount|floatformat:0 }}</span>
+            {% endif %}
+          {% endfor %}
+        </td>
+        <td>{% if q.project %}{{ q.project.get_stage_display }}{% else %}—{% endif %}</td>
+        <td><span class="badge badge-{{ q.status }}">{{ q.get_status_display }}</span></td>
+      </tr>
+      {% empty %}
+      <tr><td colspan="8" style="text-align:center; padding:40px; color:#64748b;">No quotations yet. Create one in the Django admin.</td></tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+  <p style="margin-top:24px;"><a href="/admin/payments/quotation/add/" style="color:#d4a853;">+ Create a new Quotation in Admin</a></p>
+</body>
+</html>
