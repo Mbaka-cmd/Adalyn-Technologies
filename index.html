@@ -14,6 +14,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700;9..144,800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <style>
     :root {
@@ -72,7 +73,7 @@
 
     /* MAIN NAVIGATION */
     .main-nav {
-      background: #fff;
+      background: #000;
       border-bottom: 1px solid rgba(212,168,83,0.25);
       position: sticky;
       top: 0;
@@ -86,10 +87,10 @@
       padding: 14px 0;
       position: relative;
     }
-    .nav-logo { display: flex; align-items: center; gap: 10px; }
+    .nav-logo { display: flex; align-items: center; gap: 10px; margin-right: 36px; }
     .nav-logo svg { width: 40px; height: 40px; flex-shrink: 0; }
     .nav-logo-text { line-height: 1.1; }
-    .nav-logo-text strong { display: block; font-family: var(--font-d); font-size: 18px; color: var(--navy); }
+    .nav-logo-text strong { display: block; font-family: "Orbitron", sans-serif; font-size: 24px; font-weight: 800; letter-spacing: 1.5px; text-transform: uppercase; color: #fff; white-space: nowrap; }
     .nav-logo-text span { font-size: 11px; color: var(--gold3); font-weight: 600; letter-spacing: 0.3px; }
     .nav-links {
       display: flex;
@@ -103,7 +104,7 @@
       padding: 10px 14px;
       font-weight: 500;
       font-size: 14px;
-      color: var(--navy2);
+      color: rgba(255,255,255,0.85) !important;
       transition: color .25s;
       white-space: nowrap;
       cursor: pointer;
@@ -647,7 +648,7 @@
             <div class="portfolio-tag">SaaS Platform - Live</div>
             <h3>School Management SaaS System</h3>
             <p>Multi-tenant Django/PostgreSQL SaaS platform with 4 role-based portals, M-Pesa payments, and automated SMS and PDF reporting.</p>
-            <div class="case-detail" style="margin-top:14px; background:#fdf6ec; border-radius:6px; padding:14px;">
+            <div class="case-detail" style="margin-top:14px; background:#fdf6ec; border-radius:6px; padding:14px; display:grid; grid-template-columns:1fr 1fr; gap:14px;">
               <div class="case-detail-item"><strong>Problem:</strong> Schools relied on manual fee collection and reporting, causing payment disputes and slow report card turnaround.</div>
               <div class="case-detail-item" style="margin-top:8px;"><strong>Result:</strong> 1,000+ students managed; 70% fewer payment disputes; 500+ report cards and 2,000+ SMS alerts automated per term.</div>
             </div>
@@ -663,7 +664,7 @@
             <div class="portfolio-tag">Web App - Agritech - Live</div>
             <h3>Joan Kuku Farm</h3>
             <p>A mobile-first web app for a poultry business - catalogue, cart, M-Pesa order flow, and WhatsApp handoff for 700+ customers.</p>
-            <div class="case-detail" style="margin-top:14px; background:#fdf6ec; border-radius:6px; padding:14px;">
+            <div class="case-detail" style="margin-top:14px; background:#fdf6ec; border-radius:6px; padding:14px; display:grid; grid-template-columns:1fr 1fr; gap:14px;">
               <div class="case-detail-item"><strong>Problem:</strong> Farm orders and payments were managed manually via WhatsApp, with no inventory tracking or structured ordering.</div>
               <div class="case-detail-item" style="margin-top:8px;"><strong>Result:</strong> Live public-facing site with a quantity-based cart that hands off itemised orders directly to WhatsApp.</div>
             </div>
