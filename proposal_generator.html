@@ -64,6 +64,13 @@
           <li><a href="pricing.html" class="nav-link-item">Pricing</a></li>
           <li><a href="insights.html" class="nav-link-item">Insights</a></li>
           <li><a href="contact.html" class="nav-link-item">Contact</a></li>
+          <li class="nav-search">
+              <button class="nav-search-btn" onclick="toggleSearch()"><i class="fas fa-search"></i></button>
+              <div class="nav-search-box" id="navSearchBox">
+                <input type="text" id="navSearchInput" placeholder="Search the site..." oninput="runSiteSearch()">
+                <div class="nav-search-results" id="navSearchResults"></div>
+              </div>
+          </li>
           <li><a href="https://wa.me/254748077609" target="_blank" class="nav-cta-link">Hire Us</a></li>
         </ul>
 

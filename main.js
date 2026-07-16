@@ -138,33 +138,40 @@ function sendViaWhatsApp() {
     { title: "Proposal Generator", url: "proposal_generator.html", keywords: "proposal generator pdf export quotation" }
   ];
 
+  function renderSearchResults(list) {
+    const resultsEl = document.getElementById("navSearchResults");
+    resultsEl.innerHTML = "";
+    if (!list.length) {
+      resultsEl.innerHTML = "<div style=\"padding:8px 10px; color:#94a3b8; font-size:13px;\">No matches found.</div>";
+      return;
+    }
+    list.forEach(m => {
+      const a = document.createElement("a");
+      a.href = m.url;
+      a.textContent = m.title;
+      resultsEl.appendChild(a);
+    });
+  }
+
   window.toggleSearch = function() {
-    const box = document.getElementById('navSearchBox');
-    box.classList.toggle('open');
-    if (box.classList.contains('open')) document.getElementById('navSearchInput').focus();
+    const box = document.getElementById("navSearchBox");
+    box.classList.toggle("open");
+    if (box.classList.contains("open")) {
+      renderSearchResults(sitePages);
+      document.getElementById("navSearchInput").focus();
+    }
   };
 
   window.runSiteSearch = function() {
-    const query = document.getElementById('navSearchInput').value.toLowerCase().trim();
-    const resultsEl = document.getElementById('navSearchResults');
-    resultsEl.innerHTML = '';
-    if (!query) return;
+    const query = document.getElementById("navSearchInput").value.toLowerCase().trim();
+    if (!query) { renderSearchResults(sitePages); return; }
     const matches = sitePages.filter(p => p.title.toLowerCase().includes(query) || p.keywords.includes(query));
-    if (!matches.length) {
-      resultsEl.innerHTML = '<div style="padding:8px 10px; color:#94a3b8; font-size:13px;">No matches found.</div>';
-      return;
-    }
-    matches.forEach(m => {
-      const a = document.createElement('a');
-      a.href = m.url;
-      a.innerHTML = `${m.title}`;
-      resultsEl.appendChild(a);
-    });
+    renderSearchResults(matches);
   };
 
-  document.addEventListener('click', (e) => {
-    const searchWrap = document.querySelector('.nav-search');
+  document.addEventListener("click", (e) => {
+    const searchWrap = document.querySelector(".nav-search");
     if (searchWrap && !searchWrap.contains(e.target)) {
-      document.getElementById('navSearchBox')?.classList.remove('open');
+      document.getElementById("navSearchBox")?.classList.remove("open");
     }
   });
