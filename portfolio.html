@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Portfolio & Case Studies | Adalyn Technologies Limited</title>
+  <title>Portfolio & Case Studies | Adalyn Technologies</title>
   <meta name="description" content="Real production systems built by Adalyn Technologies - school management SaaS, agritech platforms, and business tools, live and in use today.">
   <link rel="canonical" href="https://mbaka-cmd.github.io/Adalyn-Technologies/portfolio.html">
-  <meta property="og:title" content="Portfolio & Case Studies | Adalyn Technologies Limited">
+  <meta property="og:title" content="Portfolio & Case Studies | Adalyn Technologies">
   <meta property="og:description" content="Real production systems built by Adalyn Technologies - school management SaaS, agritech platforms, and business tools, live and in use today.">
   <meta property="og:url" content="https://mbaka-cmd.github.io/Adalyn-Technologies/portfolio.html">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -104,12 +104,8 @@
 
   <section>
     <div class="container">
-      <div class="portfolio-filters">
-        <button class="filter-btn active">All</button>
-        <button class="filter-btn">SaaS</button>
-        <button class="filter-btn">Agritech</button>
-        <button class="filter-btn">Business Tools</button>
-        <button class="filter-btn">EdTech</button>
+      <div class="section-header section-center" style="margin-bottom:36px;">
+        <h3 style="font-size:22px; color:var(--navy);">Our Work</h3>
       </div>
       <div class="portfolio-grid">
         <div class="portfolio-card anim">
@@ -207,22 +203,52 @@
       </div>
       <div class="testimonials-grid">
         <div class="tcard anim">
-          <div class="tcard-stars">★★★★★</div>
+          <div class="tcard-top">
+            <div class="tcard-avatar">SA</div>
+            <div>
+              <div class="tcard-author">School Administrator</div>
+              <div class="tcard-role">Secondary School, Kenya</div>
+            </div>
+            <div class="tcard-rating">&#9733;&#9733;&#9733;&#9733;&#9733; <span>5.0</span></div>
+          </div>
           <p class="tcard-text">"The school system completely replaced our manual fee process. Parents can pay via M-Pesa in seconds and we get instant confirmation. Payment disputes dropped immediately."</p>
-          <div class="tcard-author">School Administrator</div>
-          <div class="tcard-role">Secondary School, Kenya</div>
+          <div class="tcard-actions">
+            <button class="tcard-like" onclick="toggleLike(this)"><i class="far fa-heart"></i> <span class="like-count">24</span></button>
+            <button class="tcard-reply" onclick="toggleReply(this)"><i class="far fa-comment"></i> Reply</button>
+          </div>
+          <div class="tcard-reply-box"><input type="text" placeholder="Write a reply..."><button onclick="postReply(this)">Post</button></div>
         </div>
         <div class="tcard anim">
-          <div class="tcard-stars">★★★★★</div>
+          <div class="tcard-top">
+            <div class="tcard-avatar">JW</div>
+            <div>
+              <div class="tcard-author">Joan Wapolly</div>
+              <div class="tcard-role">Joan Kuku Farm, Chuka, Kenya</div>
+            </div>
+            <div class="tcard-rating">&#9733;&#9733;&#9733;&#9733;&#9733; <span>5.0</span></div>
+          </div>
           <p class="tcard-text">"The farm website gave our customers a professional way to browse and order. We went from informal WhatsApp chaos to a proper catalogue with cart and order tracking."</p>
-          <div class="tcard-author">Joan Wapolly</div>
-          <div class="tcard-role">Joan Kuku Farm, Chuka, Kenya</div>
+          <div class="tcard-actions">
+            <button class="tcard-like" onclick="toggleLike(this)"><i class="far fa-heart"></i> <span class="like-count">18</span></button>
+            <button class="tcard-reply" onclick="toggleReply(this)"><i class="far fa-comment"></i> Reply</button>
+          </div>
+          <div class="tcard-reply-box"><input type="text" placeholder="Write a reply..."><button onclick="postReply(this)">Post</button></div>
         </div>
         <div class="tcard anim">
-          <div class="tcard-stars">★★★★★</div>
+          <div class="tcard-top">
+            <div class="tcard-avatar">FD</div>
+            <div>
+              <div class="tcard-author">Freelance Developer</div>
+              <div class="tcard-role">Nairobi, Kenya</div>
+            </div>
+            <div class="tcard-rating">&#9733;&#9733;&#9733;&#9733;&#9733; <span>5.0</span></div>
+          </div>
           <p class="tcard-text">"The rate card and invoice tool saves me time in every client meeting. I can generate a proper quotation on the spot and send it to WhatsApp in under a minute."</p>
-          <div class="tcard-author">Freelance Developer</div>
-          <div class="tcard-role">Nairobi, Kenya</div>
+          <div class="tcard-actions">
+            <button class="tcard-like" onclick="toggleLike(this)"><i class="far fa-heart"></i> <span class="like-count">31</span></button>
+            <button class="tcard-reply" onclick="toggleReply(this)"><i class="far fa-comment"></i> Reply</button>
+          </div>
+          <div class="tcard-reply-box"><input type="text" placeholder="Write a reply..."><button onclick="postReply(this)">Post</button></div>
         </div>
       </div>
     </div>
@@ -261,7 +287,40 @@
     </div>
   </footer>
 
-  <script src="main.js"></script>
+  
+<script>
+  function toggleLike(btn) {
+    const countEl = btn.querySelector('.like-count');
+    const icon = btn.querySelector('i');
+    let count = parseInt(countEl.textContent);
+    if (btn.classList.contains('liked')) {
+      btn.classList.remove('liked');
+      icon.className = 'far fa-heart';
+      countEl.textContent = count - 1;
+    } else {
+      btn.classList.add('liked');
+      icon.className = 'fas fa-heart';
+      countEl.textContent = count + 1;
+    }
+  }
+  function toggleReply(btn) {
+    const box = btn.closest('.tcard').querySelector('.tcard-reply-box');
+    box.classList.toggle('open');
+    if (box.classList.contains('open')) box.querySelector('input').focus();
+  }
+  function postReply(btn) {
+    const box = btn.closest('.tcard-reply-box');
+    const input = box.querySelector('input');
+    if (!input.value.trim()) return;
+    const reply = document.createElement('div');
+    reply.className = 'tcard-posted-reply';
+    reply.innerHTML = `<strong>You:</strong> ${input.value.trim()}`;
+    box.parentNode.insertBefore(reply, box);
+    input.value = '';
+    box.classList.remove('open');
+  }
+</script>
+<script src="main.js"></script>
 
 </body>
 </html>

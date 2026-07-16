@@ -104,3 +104,67 @@ function sendViaWhatsApp() {
       mSolIcon.style.transform = isOpen ? 'rotate(0deg)' : 'rotate(180deg)';
     });
   }
+
+  /* Desktop nav dropdowns - chevron click to open, only one at a time. Link text still navigates normally. */
+  document.querySelectorAll('.nav-links > li').forEach(li => {
+    const chevron = li.querySelector(':scope > a .chevron');
+    const menu = li.querySelector('.dropdown-menu');
+    if (!chevron || !menu) return;
+    chevron.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      const isOpen = li.classList.contains('dropdown-open');
+      document.querySelectorAll('.nav-links > li.dropdown-open').forEach(openLi => openLi.classList.remove('dropdown-open'));
+      if (!isOpen) li.classList.add('dropdown-open');
+    });
+  });
+  document.addEventListener('click', (e) => {
+    if (!e.target.closest('.nav-links > li')) {
+      document.querySelectorAll('.nav-links > li.dropdown-open').forEach(li => li.classList.remove('dropdown-open'));
+    }
+  });
+
+  /* Site search */
+  const sitePages = [
+    { title: "Home", url: "index.html", keywords: "home hero landing" },
+    { title: "About", url: "about.html", keywords: "about mission vision values why choose us" },
+    { title: "Solutions", url: "solutions.html", keywords: "solutions startup business education enterprise developer cloud mpesa" },
+    { title: "Student Services", url: "student_services.html", keywords: "student final year project pricing 4500" },
+    { title: "Industries", url: "industries.html", keywords: "industries education healthcare agriculture retail hospitality" },
+    { title: "Portfolio", url: "portfolio.html", keywords: "portfolio case studies work projects chuka joan kuku farm testimonials" },
+    { title: "Pricing", url: "pricing.html", keywords: "pricing services rate card mpesa integration web development" },
+    { title: "Insights", url: "insights.html", keywords: "insights blog articles idempotency" },
+    { title: "Contact", url: "contact.html", keywords: "contact email phone whatsapp faq" },
+    { title: "Proposal Generator", url: "proposal_generator.html", keywords: "proposal generator pdf export quotation" }
+  ];
+
+  window.toggleSearch = function() {
+    const box = document.getElementById('navSearchBox');
+    box.classList.toggle('open');
+    if (box.classList.contains('open')) document.getElementById('navSearchInput').focus();
+  };
+
+  window.runSiteSearch = function() {
+    const query = document.getElementById('navSearchInput').value.toLowerCase().trim();
+    const resultsEl = document.getElementById('navSearchResults');
+    resultsEl.innerHTML = '';
+    if (!query) return;
+    const matches = sitePages.filter(p => p.title.toLowerCase().includes(query) || p.keywords.includes(query));
+    if (!matches.length) {
+      resultsEl.innerHTML = '<div style="padding:8px 10px; color:#94a3b8; font-size:13px;">No matches found.</div>';
+      return;
+    }
+    matches.forEach(m => {
+      const a = document.createElement('a');
+      a.href = m.url;
+      a.innerHTML = `${m.title}`;
+      resultsEl.appendChild(a);
+    });
+  };
+
+  document.addEventListener('click', (e) => {
+    const searchWrap = document.querySelector('.nav-search');
+    if (searchWrap && !searchWrap.contains(e.target)) {
+      document.getElementById('navSearchBox')?.classList.remove('open');
+    }
+  });

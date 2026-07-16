@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>About Us | Adalyn Technologies Limited</title>
-  <meta name="description" content="Learn about Adalyn Technologies Limited's mission, vision, values, and how we build reliable software for businesses, schools, and institutions.">
+  <title>About Us | Adalyn Technologies</title>
+  <meta name="description" content="Learn about Adalyn Technologies's mission, vision, values, and how we build reliable software for businesses, schools, and institutions.">
   <link rel="canonical" href="https://mbaka-cmd.github.io/Adalyn-Technologies/about.html">
-  <meta property="og:title" content="About Us | Adalyn Technologies Limited">
-  <meta property="og:description" content="Learn about Adalyn Technologies Limited's mission, vision, values, and how we build reliable software for businesses, schools, and institutions.">
+  <meta property="og:title" content="About Us | Adalyn Technologies">
+  <meta property="og:description" content="Learn about Adalyn Technologies's mission, vision, values, and how we build reliable software for businesses, schools, and institutions.">
   <meta property="og:url" content="https://mbaka-cmd.github.io/Adalyn-Technologies/about.html">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -63,7 +63,14 @@
           <li><a href="pricing.html" class="nav-link-item">Pricing</a></li>
           <li><a href="insights.html" class="nav-link-item">Insights</a></li>
           <li><a href="contact.html" class="nav-link-item">Contact</a></li>
-          <li><a href="https://wa.me/254748077609" target="_blank" class="nav-cta-link">Hire Us</a></li>
+          <li class="nav-search">
+              <button class="nav-search-btn" onclick="toggleSearch()"><i class="fas fa-search"></i></button>
+              <div class="nav-search-box" id="navSearchBox">
+                <input type="text" id="navSearchInput" placeholder="Search the site..." oninput="runSiteSearch()">
+                <div class="nav-search-results" id="navSearchResults"></div>
+              </div>
+            </li>
+            <li><a href="https://wa.me/254748077609" target="_blank" class="nav-cta-link">Hire Us</a></li>
         </ul>
 
         <button class="hamburger" id="hamburgerBtn" aria-label="Toggle menu">
@@ -98,7 +105,7 @@
     <div class="container">
       <div class="breadcrumb"><a href="index.html">Home</a> / About</div>
       <h1>Building Technology That Solves Real Problems</h1>
-      <p>Adalyn Technologies Limited develops custom software, digital platforms, and business solutions that help organizations improve efficiency, simplify operations, and support sustainable growth.</p>
+      <p>Adalyn Technologies develops custom software, digital platforms, and business solutions that help organizations improve efficiency, simplify operations, and support sustainable growth.</p>
     </div>
   </section>
 
@@ -198,19 +205,6 @@
     </div>
   </section>
 
-  <section>
-    <div class="container">
-      <div class="section-header section-center">
-        <span class="section-label">Why Choose Us</span>
-        <h2 class="section-title">Why Organizations Choose Adalyn Technologies</h2>
-      </div>
-      <div class="why-grid" style="color:var(--navy2);">
-        <div class="why-item anim"><i class="fas fa-check-circle" style="color:var(--gold3);"></i><span style="color:var(--navy2);">We build for real operational load, not demos</span></div>
-        <div class="why-item anim"><i class="fas fa-check-circle" style="color:var(--gold3);"></i><span style="color:var(--navy2);">Transparent pricing and communication throughout</span></div>
-        <div class="why-item anim"><i class="fas fa-check-circle" style="color:var(--gold3);"></i><span style="color:var(--navy2);">Documentation handed over with every project</span></div>
-        <div class="why-item anim"><i class="fas fa-check-circle" style="color:var(--gold3);"></i><span style="color:var(--navy2);">We stay on as a long-term technology partner</span></div>
-      </div>
-    </div>
   </section>
 
   <section class="cta-section">

@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Smart Proposal Generator | Adalyn Technologies Limited</title>
+  <title>Smart Proposal Generator | Adalyn Technologies</title>
   <meta name="description" content="Generate a professional, client-ready project proposal with cover page, scope, deliverables, timeline, cost breakdown, and terms - export as PDF instantly.">
   <link rel="canonical" href="https://mbaka-cmd.github.io/Adalyn-Technologies/proposal_generator.html">
   <meta property="og:title" content="Smart Proposal Generator | Adalyn Technologies Limited">
@@ -122,7 +122,7 @@
           </div>
           <div style="margin-bottom:14px;">
             <label class="pg-label">Prepared By</label>
-            <input type="text" id="pgPreparedBy" class="pg-input" value="Adalyn Technologies Limited">
+            <input type="text" id="pgPreparedBy" class="pg-input" value="Adalyn Technologies Limited" readonly style="background:#f1f1f1; cursor:not-allowed;">
           </div>
           <div style="margin-bottom:14px;">
             <label class="pg-label">Proposal Date</label>
@@ -184,7 +184,7 @@
 
             <div class="pg-doc-section">
               <h4>Scope of Work</h4>
-              <p id="pvScope">Scope description will appear here once you fill it in on the left.</p>
+              <p id="pvScope"></p>
             </div>
 
             <div class="pg-doc-section">
@@ -295,7 +295,7 @@
       const title = document.getElementById('pgTitle').value.trim() || 'Project Title';
       const preparedBy = document.getElementById('pgPreparedBy').value.trim() || 'Adalyn Technologies Limited';
       const dateVal = document.getElementById('pgDate').value;
-      const scope = document.getElementById('pgScope').value.trim() || 'Scope description will appear here once you fill it in on the left.';
+      const scope = document.getElementById('pgScope').value.trim() || '';
       const terms = document.getElementById('pgTerms').value.trim();
       const signatory = document.getElementById('pgSignatory').value.trim() || 'Signatory Name';
 
@@ -317,7 +317,7 @@
           delivList.appendChild(li);
         }
       });
-      if (!delivList.children.length) delivList.innerHTML = '<li>Deliverables will appear here once added.</li>';
+      // Deliverables list stays empty until items are added
 
       const tlBody = document.querySelector('#pvTimeline tbody');
       tlBody.innerHTML = '';
@@ -330,7 +330,7 @@
           tlBody.appendChild(tr);
         }
       });
-      if (!tlBody.children.length) tlBody.innerHTML = '<tr><td colspan="2">Timeline milestones will appear here once added.</td></tr>';
+      // Timeline stays empty until milestones are added
 
       const costBody = document.querySelector('#pvCosts tbody');
       costBody.innerHTML = '';

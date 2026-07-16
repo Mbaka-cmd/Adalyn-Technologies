@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Adalyn Technologies Limited | Software Development & Business Systems | Nairobi, Kenya</title>
-  <meta name="description" content="Adalyn Technologies Limited builds production-grade web systems, school management platforms, business automation, and M-Pesa integrated solutions for Kenyan businesses and institutions.">
+  <title>Adalyn Technologies | Software Development & Business Systems | Nairobi, Kenya</title>
+  <meta name="description" content="Adalyn Technologies builds production-grade web systems, school management platforms, business automation, and M-Pesa integrated solutions for Kenyan businesses and institutions.">
   <meta name="keywords" content="web development Kenya, school management system, M-Pesa integration, Django developer, business systems Nairobi, Adalyn Technologies">
   <link rel="canonical" href="https://mbaka-cmd.github.io/Adalyn-Technologies/">
-  <meta property="og:title" content="Adalyn Technologies Limited - Software Development & Business Systems">
+  <meta property="og:title" content="Adalyn Technologies - Software Development & Business Systems">
   <meta property="og:description" content="Production-grade web systems, school ERPs, business automation, and M-Pesa integrated platforms for Kenyan businesses.">
   <meta property="og:url" content="https://mbaka-cmd.github.io/Adalyn-Technologies/">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -138,7 +138,7 @@
       transition: all 0.22s ease;
       z-index: 600;
     }
-    .nav-links > li:hover .dropdown-menu {
+    .nav-links > li.dropdown-open .dropdown-menu {
       opacity: 1;
       visibility: visible;
       transform: translateY(0);
@@ -492,6 +492,10 @@
 
     .nav-cta-link, .btn-gold { background: var(--gold3, #d4a853) !important; border: none !important; }
   </style>
+<style>
+/* Circular logo badge */
+.nav-logo img { border-radius: 50%; border: 2px solid var(--gold); padding: 3px; background: #000; }
+.footer-brand img { border-radius: 50%; border: 2px solid var(--gold); padding: 2px; background: #000; }</style>
 </head>
 <body>
 
@@ -528,28 +532,19 @@
           <li>
             <a href="solutions.html" class="nav-link-item">Solutions <i class="fas fa-chevron-down chevron"></i></a>
             <div class="dropdown-menu">
-              <a href="student_services.html">Student Hub</a>
-              <a href="solutions.html#startup">Startup Hub</a>
+              <a href="student_services.html">Student Services</a>
+              <a href="solutions.html#startup">Startup Solutions</a>
               <a href="solutions.html#business">Business Solutions</a>
               <a href="solutions.html#education">Education Solutions</a>
               <a href="solutions.html#enterprise">Enterprise Solutions</a>
-              <a href="solutions.html#smart">Smart Technology</a>
+              <a href="solutions.html#developer">Developer Services</a>
+              <a href="solutions.html#cloud">Cloud & M-Pesa</a>
+              <a href="proposal_generator.html">Proposal Generator</a>
             </div>
           </li>
-          <li>
-            <a href="pricing.html" class="nav-link-item">Services <i class="fas fa-chevron-down chevron"></i></a>
-            <div class="dropdown-menu">
-              <a href="pricing.html">School ERP Systems</a>
-              <a href="pricing.html">Business Management Systems</a>
-              <a href="pricing.html">M-Pesa Integration</a>
-              <a href="pricing.html">Web Development</a>
-              <a href="pricing.html">API Development</a>
-              <a href="pricing.html">Cloud Deployment</a>
-            </div>
-          </li>
-          <li><a href="solutions.html" class="nav-link-item">Products</a></li>
           <li><a href="industries.html" class="nav-link-item">Industries</a></li>
-          <li><a href="portfolio.html" class="nav-link-item">Case Studies</a></li>
+          <li><a href="portfolio.html" class="nav-link-item">Portfolio</a></li>
+          <li><a href="pricing.html" class="nav-link-item">Pricing</a></li>
           <li><a href="insights.html" class="nav-link-item">Insights</a></li>
           <li><a href="contact.html" class="nav-link-item">Contact</a></li>
           <li><a href="https://wa.me/254748077609" target="_blank" class="nav-cta-link">Hire Us</a></li>
@@ -564,20 +559,21 @@
         <a href="index.html">Home</a>
         <a href="about.html">About</a>
         <div class="mobile-nav-group-label">Solutions</div>
-        <a href="student_services.html">Student Hub</a>
-        <a href="solutions.html#startup">Startup Hub</a>
+        <a href="student_services.html">Student Services</a>
+        <a href="solutions.html#startup">Startup Solutions</a>
         <a href="solutions.html#business">Business Solutions</a>
         <a href="solutions.html#education">Education Solutions</a>
         <a href="solutions.html#enterprise">Enterprise Solutions</a>
-        <a href="solutions.html#smart">Smart Technology</a>
+        <a href="solutions.html#developer">Developer Services</a>
+        <a href="solutions.html#cloud">Cloud & M-Pesa</a>
+        <a href="proposal_generator.html">Proposal Generator</a>
         <div class="mobile-nav-group-label">Company</div>
-        <a href="pricing.html">Services & Pricing</a>
-        <a href="solutions.html">Products</a>
         <a href="industries.html">Industries</a>
-        <a href="portfolio.html">Case Studies</a>
+        <a href="portfolio.html">Portfolio</a>
+        <a href="pricing.html">Pricing</a>
         <a href="insights.html">Insights</a>
         <a href="contact.html">Contact</a>
-        <a href="https://wa.me/254748077609" target="_blank" style="color: var(--gold3); margin-top:8px;">💬 Hire Us via WhatsApp</a>
+        <a href="https://wa.me/254748077609" target="_blank" style="color: var(--gold3); margin-top:8px;">Hire Us via WhatsApp</a>
       </div>
     </div>
   </nav>
@@ -587,22 +583,22 @@
     <div class="container">
       <div class="hero-inner">
         <div class="hero-content">
-          <div class="hero-eyebrow"><span></span>Nairobi, Kenya - Production-Grade Systems</div>
-          <h1>Engineering Software That Moves Businesses Forward</h1>
-          <p>Adalyn Technologies Limited designs and builds custom software - school platforms, business systems, and payment-integrated tools - engineered to solve real operational problems for businesses, schools, and institutions.</p>
+          <div class="hero-eyebrow"><span></span>Full-Stack Systems Development</div>
+          <h1>Eliminate the Manual Work.</h1>
+          <p>We design and build platforms that replace spreadsheets, WhatsApp groups, and paper records - school ERPs with M-Pesa integration, inventory systems, client portals, and e-commerce solutions. Deployed live, documented, and supported after launch.</p>
           <div class="hero-actions">
-            <a href="portfolio.html" class="btn btn-gold"><i class="fas fa-briefcase"></i> View Case Studies</a>
-            <a href="https://wa.me/254748077609" class="btn btn-outline-light"><i class="fab fa-whatsapp"></i> Start Your Project</a>
+            <a href="https://wa.me/254748077609" class="btn btn-gold"><i class="fab fa-whatsapp"></i> Start Your Project</a>
+            <a href="portfolio.html" class="btn btn-outline-light"><i class="fas fa-briefcase"></i> View Case Studies</a>
           </div>
         </div>
         <div class="hero-visual">
           <div class="hero-card">
-            <div class="hero-card-title">Production Metrics</div>
+            <div class="hero-card-title">Built To Perform</div>
             <div class="hero-stat-row">
-              <div class="hero-stat"><big>1,000+</big><small>Students Managed</small></div>
-              <div class="hero-stat"><big>70%</big><small>Fewer Disputes</small></div>
-              <div class="hero-stat"><big>500+</big><small>PDF Reports/Term</small></div>
-              <div class="hero-stat"><big>4</big><small>Live Systems</small></div>
+              <div class="hero-stat"><big>24/7</big><small>Always Online</small></div>
+              <div class="hero-stat"><big>Enterprise</big><small>Security</small></div>
+              <div class="hero-stat"><big>Tailored</big><small>To Your Business</small></div>
+              <div class="hero-stat"><big>Responsive</big><small>Every Device</small></div>
             </div>
             <div class="hero-tech-row">
               <span class="hero-tech-tag">Django</span>
@@ -613,6 +609,21 @@
             </div>
           </div>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-cream">
+    <div class="container">
+      <div class="section-header section-center">
+        <span class="section-label">How We Work</span>
+        <h2 class="section-title">From First Call to Live System</h2>
+      </div>
+      <div class="process-row">
+        <div class="process-step anim"><span class="process-num">1</span><h4>Discovery Call</h4><p>Free, 30 minutes</p></div>
+        <div class="process-step anim"><span class="process-num">2</span><h4>Custom Proposal</h4><p>48-hour turnaround</p></div>
+        <div class="process-step anim"><span class="process-num">3</span><h4>Build & Deploy</h4><p>2-6 weeks</p></div>
+        <div class="process-step anim"><span class="process-num">4</span><h4>Support & Training</h4><p>Included, 3 months</p></div>
       </div>
     </div>
   </section>
@@ -707,12 +718,18 @@
   </section>
 
   <!-- CONTACT -->
-  <section style="padding: 40px 0; background: var(--navy, #0f172a); color: #fff;">
-    <div class="container" style="display:flex; flex-wrap:wrap; justify-content:center; align-items:center; gap:24px; text-align:center;">
-      <a href="mailto:official.mercymbaka@gmail.com" style="color:#fff; text-decoration:none;"><i class="fas fa-envelope"></i> official.mercymbaka@gmail.com</a>
-      <span style="opacity:0.4;">|</span>
-      <a href="tel:0748077609" style="color:#fff; text-decoration:none;"><i class="fas fa-phone"></i> 0748077609</a>
-      
+  <section class="section-cream">
+    <div class="container">
+      <div class="section-header section-center">
+        <span class="section-label">Why Choose Us</span>
+        <h2 class="section-title">Why Organizations Choose Adalyn Technologies</h2>
+      </div>
+      <div class="why-grid" style="color:var(--navy2);">
+        <div class="why-item anim"><i class="fas fa-check-circle" style="color:var(--gold3);"></i><span style="color:var(--navy2);">We build for real operational load, not demos</span></div>
+        <div class="why-item anim"><i class="fas fa-check-circle" style="color:var(--gold3);"></i><span style="color:var(--navy2);">Transparent pricing and communication throughout</span></div>
+        <div class="why-item anim"><i class="fas fa-check-circle" style="color:var(--gold3);"></i><span style="color:var(--navy2);">Documentation handed over with every project</span></div>
+        <div class="why-item anim"><i class="fas fa-check-circle" style="color:var(--gold3);"></i><span style="color:var(--navy2);">We stay on as a long-term technology partner</span></div>
+      </div>
     </div>
   </section>
   </section>
@@ -726,25 +743,13 @@
             <img src="logo.png" alt="Adalyn Technologies Logo" style="width:36px;height:36px;object-fit:contain;">
             <strong style="font-family:var(--font-d);font-size:17px;color:#fff;">Adalyn Technologies</strong>
           </div>
-          <p>Production-grade platforms, school management systems, and payment-integrated solutions built for organizations across Africa.</p>
+          <p>Production-grade platforms, school management systems, and payment-integrated solutions built for organizations across Africa. Based in Nairobi, Kenya.</p>
           <div class="footer-social">
             <a href="https://github.com/Mbaka-cmd" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
             <a href="https://wa.me/254748077609" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
             <a href="https://www.linkedin.com/in/mercy-mbaka-4b4036354" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
             <a href="mailto:official.mercymbaka@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
           </div>
-        </div>
-        <div class="footer-col">
-          <h4>Quick Links</h4>
-          <a href="index.html">Home</a>
-          <a href="about.html">About</a>
-          <a href="solutions.html">Solutions</a>
-          <a href="pricing.html">Services</a>
-          <a href="solutions.html">Products</a>
-          <a href="industries.html">Industries</a>
-          <a href="portfolio.html">Case Studies</a>
-          <a href="insights.html">Insights</a>
-          <a href="contact.html">Contact</a>
         </div>
         <div class="footer-col">
           <h4>Solutions</h4>
@@ -867,6 +872,25 @@
           target.scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
       });
+    });
+  
+    /* Desktop nav dropdowns - chevron click to open, only one at a time. Link text still navigates normally. */
+    document.querySelectorAll('.nav-links > li').forEach(li => {
+      const chevron = li.querySelector(':scope > a .chevron');
+      const menu = li.querySelector('.dropdown-menu');
+      if (!chevron || !menu) return;
+      chevron.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        const isOpen = li.classList.contains('dropdown-open');
+        document.querySelectorAll('.nav-links > li.dropdown-open').forEach(openLi => openLi.classList.remove('dropdown-open'));
+        if (!isOpen) li.classList.add('dropdown-open');
+      });
+    });
+    document.addEventListener('click', (e) => {
+      if (!e.target.closest('.nav-links > li')) {
+        document.querySelectorAll('.nav-links > li.dropdown-open').forEach(li => li.classList.remove('dropdown-open'));
+      }
     });
   </script>
 
