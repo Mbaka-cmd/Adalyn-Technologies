@@ -24,7 +24,6 @@
         <a href="tel:0748077609"><i class="fas fa-phone" style="margin-right:5px;"></i>0748077609</a>
       </div>
       <div class="topbar-right">
-        <a href="https://github.com/Mbaka-cmd" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
         <a href="https://wa.me/254748077609" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
         <a href="https://www.linkedin.com/in/mercy-mbaka-4b4036354" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
       </div>
@@ -261,6 +260,23 @@
     </div>
   </section>
 
+  <section class="section-cream">
+    <div class="container">
+      <div class="section-header section-center">
+        <span class="section-label">Community</span>
+        <h2 class="section-title">Client & Visitor Comments</h2>
+        <p class="section-sub">Have you worked with us, or have a question? Leave a comment below.</p>
+      </div>
+      <div id="commentFormWrap" style="max-width:600px; margin:0 auto 40px; background:#fff; border-radius:14px; padding:24px; box-shadow:var(--shadow);">
+        <input type="text" id="commentName" placeholder="Your name" style="width:100%; padding:10px 12px; margin-bottom:10px; border:1px solid #ddd; border-radius:8px; font-size:14px; box-sizing:border-box;">
+        <div id="commentStarPicker" style="margin-bottom:10px; font-size:20px; color:#ddd; cursor:pointer;"></div>
+        <textarea id="commentText" placeholder="Write your comment..." style="width:100%; padding:10px 12px; margin-bottom:10px; border:1px solid #ddd; border-radius:8px; font-size:14px; min-height:80px; box-sizing:border-box; font-family:inherit;"></textarea>
+        <button onclick="postComment()" class="btn btn-gold" style="width:100%; justify-content:center;">Post Comment</button>
+      </div>
+      <div id="commentsList" class="testimonials-grid"></div>
+    </div>
+  </section>
+
   <section class="cta-section">
     <div class="container">
       <h2>Want Results Like This?</h2>
@@ -280,7 +296,6 @@
           <strong style="font-family:var(--font-d);font-size:16px;color:#fff;">Adalyn Technologies</strong>
         </div>
         <div class="footer-social" style="justify-content:center;">
-          <a href="https://github.com/Mbaka-cmd" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
           <a href="https://wa.me/254748077609" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
           <a href="https://www.linkedin.com/in/mercy-mbaka-4b4036354" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
           <a href="mailto:official.mercymbaka@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
@@ -328,5 +343,139 @@
 </script>
 <script src="main.js"></script>
 
+
+<script>
+  const STORAGE_KEY = 'adalyn_comments';
+  let selectedRating = 5;
+
+  function loadComments() {
+    const raw = localStorage.getItem(STORAGE_KEY);
+    return raw ? JSON.parse(raw) : [];
+  }
+
+  function saveComments(comments) {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(comments));
+  }
+
+  function renderStarPicker() {
+    const picker = document.getElementById('commentStarPicker');
+    picker.innerHTML = '';
+    for (let i = 1; i <= 5; i++) {
+      const star = document.createElement('span');
+      star.textContent = i <= selectedRating ? '\u2605' : '\u2606';
+      star.style.marginRight = '4px';
+      star.onclick = () => { selectedRating = i; renderStarPicker(); };
+      picker.appendChild(star);
+    }
+  }
+
+  function postComment() {
+    const name = document.getElementById('commentName').value.trim();
+    const text = document.getElementById('commentText').value.trim();
+    if (!name || !text) { alert('Please enter your name and a comment.'); return; }
+
+    const comments = loadComments();
+    comments.unshift({
+      id: Date.now().toString(),
+      name: name,
+      text: text,
+      rating: selectedRating,
+      likes: 0,
+      liked: false,
+      replies: []
+    });
+    saveComments(comments);
+    document.getElementById('commentName').value = '';
+    document.getElementById('commentText').value = '';
+    selectedRating = 5;
+    renderStarPicker();
+    renderComments();
+  }
+
+  function deleteComment(id) {
+    if (!confirm('Delete this comment?')) return;
+    let comments = loadComments();
+    comments = comments.filter(c => c.id !== id);
+    saveComments(comments);
+    renderComments();
+  }
+
+  function editComment(id) {
+    const comments = loadComments();
+    const c = comments.find(c => c.id === id);
+    if (!c) return;
+    const newText = prompt('Edit your comment:', c.text);
+    if (newText === null) return;
+    c.text = newText.trim();
+    saveComments(comments);
+    renderComments();
+  }
+
+  function toggleCommentLike(id) {
+    const comments = loadComments();
+    const c = comments.find(c => c.id === id);
+    if (!c) return;
+    c.liked = !c.liked;
+    c.likes += c.liked ? 1 : -1;
+    saveComments(comments);
+    renderComments();
+  }
+
+  function toggleCommentReply(id) {
+    const box = document.getElementById('reply-box-' + id);
+    box.classList.toggle('open');
+    if (box.classList.contains('open')) box.querySelector('input').focus();
+  }
+
+  function postCommentReply(id) {
+    const box = document.getElementById('reply-box-' + id);
+    const input = box.querySelector('input');
+    if (!input.value.trim()) return;
+    const comments = loadComments();
+    const c = comments.find(c => c.id === id);
+    if (!c) return;
+    c.replies.push(input.value.trim());
+    saveComments(comments);
+    renderComments();
+  }
+
+  function renderComments() {
+    const list = document.getElementById('commentsList');
+    const comments = loadComments();
+    list.innerHTML = '';
+    if (!comments.length) {
+      list.innerHTML = '<p style="text-align:center; color:var(--gray2); grid-column:1/-1;">No comments yet. Be the first to share your experience.</p>';
+      return;
+    }
+    comments.forEach(c => {
+      const stars = '\u2605'.repeat(c.rating) + '\u2606'.repeat(5 - c.rating);
+      const initials = c.name.split(' ').map(w => w[0]).join('').toUpperCase().slice(0, 2);
+      const repliesHTML = c.replies.map(r => '<div class="tcard-posted-reply"><span>' + r + '</span></div>').join('');
+      const card = document.createElement('div');
+      card.className = 'tcard anim';
+      card.innerHTML =
+        '<div class="tcard-top">' +
+          '<div class="tcard-avatar">' + initials + '</div>' +
+          '<div><div class="tcard-author">' + c.name + '</div></div>' +
+          '<div class="tcard-rating">' + stars + '</div>' +
+        '</div>' +
+        '<p class="tcard-text">' + c.text + '</p>' +
+        '<div class="tcard-actions">' +
+          '<button class="tcard-like' + (c.liked ? ' liked' : '') + '" onclick="toggleCommentLike(\'' + c.id + '\')"><i class="' + (c.liked ? 'fas' : 'far') + ' fa-heart"></i> <span>' + c.likes + '</span></button>' +
+          '<button class="tcard-reply" onclick="toggleCommentReply(\'' + c.id + '\')"><i class="far fa-comment"></i> Reply</button>' +
+          '<button class="tcard-reply" onclick="editComment(\'' + c.id + '\')"><i class="far fa-edit"></i> Edit</button>' +
+          '<button class="tcard-reply" onclick="deleteComment(\'' + c.id + '\')"><i class="far fa-trash-alt"></i> Delete</button>' +
+        '</div>' +
+        repliesHTML +
+        '<div class="tcard-reply-box" id="reply-box-' + c.id + '"><input type="text" placeholder="Write a reply..."><button onclick="postCommentReply(\'' + c.id + '\')">Post</button></div>';
+      list.appendChild(card);
+    });
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    renderStarPicker();
+    renderComments();
+  });
+</script>
 </body>
 </html>

@@ -461,9 +461,9 @@
       .services-grid, .portfolio-grid, .testimonials-grid, .blog-grid, .journey-grid { grid-template-columns: 1fr; }
       .products-grid, .why-grid, .mv-grid { grid-template-columns: 1fr; }
       .stats-grid { grid-template-columns: 1fr 1fr; }
-      .footer-grid { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr 1fr; } .footer-brand { grid-column: 1 / -1; }
       section { padding: 65px 0; }
-      .topbar-right { display: none; }
+      .topbar-right { gap: 10px; }
       .process-row { grid-template-columns: 1fr 1fr; }
       .resource-grid, .industries-grid { grid-template-columns: 1fr 1fr; }
     }
@@ -679,3 +679,9 @@ footer { padding-top: 40px; padding-bottom: 20px; }
 .nav-search-results a { display: block; padding: 8px 10px; border-radius: 6px; font-size: 13.5px; color: var(--navy2); text-decoration: none; }
 .nav-search-results a:hover { background: var(--cream); color: var(--navy); }
 .nav-search-results a small { display: block; color: var(--gray2); font-size: 11px; }
+
+/* Featured Projects Problem/Result - responsive grid */
+.featured-case-detail { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+@media (max-width: 640px) {
+  .featured-case-detail { grid-template-columns: 1fr; gap: 10px; }
+}
