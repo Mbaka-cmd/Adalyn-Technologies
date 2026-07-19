@@ -345,17 +345,7 @@
 
 
 <script>
-  const STORAGE_KEY = 'adalyn_comments';
   let selectedRating = 5;
-
-  function loadComments() {
-    const raw = localStorage.getItem(STORAGE_KEY);
-    return raw ? JSON.parse(raw) : [];
-  }
-
-  function saveComments(comments) {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(comments));
-  }
 
   function renderStarPicker() {
     const picker = document.getElementById('commentStarPicker');
@@ -369,55 +359,67 @@
     }
   }
 
-  function postComment() {
+  async function fetchComments() {
+    try {
+      const res = await fetch('comments.php?action=list');
+      const data = await res.json();
+      return data.success ? data.comments : [];
+    } catch (e) {
+      console.error('Could not load comments:', e);
+      return [];
+    }
+  }
+
+  async function postComment() {
     const name = document.getElementById('commentName').value.trim();
     const text = document.getElementById('commentText').value.trim();
     if (!name || !text) { alert('Please enter your name and a comment.'); return; }
 
-    const comments = loadComments();
-    comments.unshift({
-      id: Date.now().toString(),
-      name: name,
-      text: text,
-      rating: selectedRating,
-      likes: 0,
-      liked: false,
-      replies: []
-    });
-    saveComments(comments);
-    document.getElementById('commentName').value = '';
-    document.getElementById('commentText').value = '';
-    selectedRating = 5;
-    renderStarPicker();
-    renderComments();
+    try {
+      const res = await fetch('comments.php?action=add', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name, text, rating: selectedRating })
+      });
+      const data = await res.json();
+      if (!data.success) { alert(data.error || 'Could not post comment.'); return; }
+      document.getElementById('commentName').value = '';
+      document.getElementById('commentText').value = '';
+      selectedRating = 5;
+      renderStarPicker();
+      renderComments();
+    } catch (e) {
+      alert('Could not connect to the comment server. This feature only works once the site is live on a PHP-enabled host (like TrueHost), not on GitHub Pages or a local test server.');
+    }
   }
 
-  function deleteComment(id) {
+  async function deleteComment(id) {
     if (!confirm('Delete this comment?')) return;
-    let comments = loadComments();
-    comments = comments.filter(c => c.id !== id);
-    saveComments(comments);
+    await fetch('comments.php?action=delete', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ id })
+    });
     renderComments();
   }
 
-  function editComment(id) {
-    const comments = loadComments();
-    const c = comments.find(c => c.id === id);
-    if (!c) return;
-    const newText = prompt('Edit your comment:', c.text);
+  async function editComment(id, oldText) {
+    const newText = prompt('Edit your comment:', oldText);
     if (newText === null) return;
-    c.text = newText.trim();
-    saveComments(comments);
+    await fetch('comments.php?action=edit', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ id, text: newText.trim() })
+    });
     renderComments();
   }
 
-  function toggleCommentLike(id) {
-    const comments = loadComments();
-    const c = comments.find(c => c.id === id);
-    if (!c) return;
-    c.liked = !c.liked;
-    c.likes += c.liked ? 1 : -1;
-    saveComments(comments);
+  async function toggleCommentLike(id, currentlyLiked) {
+    await fetch('comments.php?action=like', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ id, delta: currentlyLiked ? -1 : 1 })
+    });
     renderComments();
   }
 
@@ -427,21 +429,21 @@
     if (box.classList.contains('open')) box.querySelector('input').focus();
   }
 
-  function postCommentReply(id) {
+  async function postCommentReply(id) {
     const box = document.getElementById('reply-box-' + id);
     const input = box.querySelector('input');
     if (!input.value.trim()) return;
-    const comments = loadComments();
-    const c = comments.find(c => c.id === id);
-    if (!c) return;
-    c.replies.push(input.value.trim());
-    saveComments(comments);
+    await fetch('comments.php?action=reply', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ id, text: input.value.trim() })
+    });
     renderComments();
   }
 
-  function renderComments() {
+  async function renderComments() {
     const list = document.getElementById('commentsList');
-    const comments = loadComments();
+    const comments = await fetchComments();
     list.innerHTML = '';
     if (!comments.length) {
       list.innerHTML = '<p style="text-align:center; color:var(--gray2); grid-column:1/-1;">No comments yet. Be the first to share your experience.</p>';
@@ -450,9 +452,10 @@
     comments.forEach(c => {
       const stars = '\u2605'.repeat(c.rating) + '\u2606'.repeat(5 - c.rating);
       const initials = c.name.split(' ').map(w => w[0]).join('').toUpperCase().slice(0, 2);
-      const repliesHTML = c.replies.map(r => '<div class="tcard-posted-reply"><span>' + r + '</span></div>').join('');
+      const repliesHTML = (c.replies || []).map(r => '<div class="tcard-posted-reply"><span>' + r + '</span></div>').join('');
       const card = document.createElement('div');
       card.className = 'tcard anim';
+      const escapedText = c.text.replace(/'/g, "\\'");
       card.innerHTML =
         '<div class="tcard-top">' +
           '<div class="tcard-avatar">' + initials + '</div>' +
@@ -461,9 +464,9 @@
         '</div>' +
         '<p class="tcard-text">' + c.text + '</p>' +
         '<div class="tcard-actions">' +
-          '<button class="tcard-like' + (c.liked ? ' liked' : '') + '" onclick="toggleCommentLike(\'' + c.id + '\')"><i class="' + (c.liked ? 'fas' : 'far') + ' fa-heart"></i> <span>' + c.likes + '</span></button>' +
+          '<button class="tcard-like" onclick="toggleCommentLike(\'' + c.id + '\', false)"><i class="far fa-heart"></i> <span>' + c.likes + '</span></button>' +
           '<button class="tcard-reply" onclick="toggleCommentReply(\'' + c.id + '\')"><i class="far fa-comment"></i> Reply</button>' +
-          '<button class="tcard-reply" onclick="editComment(\'' + c.id + '\')"><i class="far fa-edit"></i> Edit</button>' +
+          '<button class="tcard-reply" onclick="editComment(\'' + c.id + '\', \'' + escapedText + '\')"><i class="far fa-edit"></i> Edit</button>' +
           '<button class="tcard-reply" onclick="deleteComment(\'' + c.id + '\')"><i class="far fa-trash-alt"></i> Delete</button>' +
         '</div>' +
         repliesHTML +
