@@ -1,4 +1,4 @@
-:root {
+﻿:root {
       --navy:   #0f172a;
       --navy2:  #1e293b;
       --gold:   #d4a853;
@@ -508,7 +508,7 @@
 .solution-copy .section-label { margin-bottom: 8px; }
 .solution-copy h2 { font-size: 30px; color: var(--navy); margin-bottom: 14px; }
 .solution-copy p { color: var(--gray); font-size: 15px; line-height: 1.75; margin-bottom: 16px; }
-.solution-visual { background: var(--cream); border: 1px solid rgba(212,168,83,0.25); border-radius: 16px; padding: 30px; }
+.solution-visual { background: #fff; border: 1px solid rgba(212,168,83,0.25); border-radius: 16px; padding: 30px; box-shadow: var(--shadow); }
 .solution-visual h4 { font-size: 14px; text-transform: uppercase; letter-spacing: .5px; color: var(--gold3); margin-bottom: 16px; }
 .solution-benefit-list { list-style:none; display:flex; flex-direction:column; gap:10px; }
 .solution-benefit-list li { display:flex; align-items:flex-start; gap:10px; font-size:14px; color:var(--navy2); }

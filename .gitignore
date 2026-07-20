@@ -1,0 +1,9 @@
+﻿*.bak
+*.bak2
+*.bak3
+.vscode/
+adalyn_payments/
+__pycache__/
+*.pyc
+.env
+adalyntech_index_dump.txt

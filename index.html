@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -351,7 +351,7 @@
     .process-step p { font-size: 12.5px; color: var(--gray); }
 
     /* WHY US */
-    .why-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
+    .why-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 18px; }
     .why-item { display: flex; align-items: flex-start; gap: 12px; }
     .why-item i { color: var(--gold2); font-size: 16px; margin-top: 2px; flex-shrink: 0; }
     .why-item span { font-size: 14.5px; color: rgba(255,255,255,0.85); }
@@ -591,35 +591,41 @@
     <div class="container">
       <div class="hero-inner">
         <div class="hero-content">
-          <div class="hero-eyebrow"><span></span>Full-Stack Systems Development</div>
-          <h1>Eliminate the Manual Work.</h1>
-          <p>We design and build platforms that replace spreadsheets, WhatsApp groups, and paper records - school ERPs with M-Pesa integration, inventory systems, client portals, and e-commerce solutions. Deployed live, documented, and supported after launch.</p>
+          <div class="hero-eyebrow"><span></span>Trusted by schools and businesses across Kenya</div>
+          <h1>Software Built Around Your Business.</h1>
+          <p>Every organization runs differently - a school collects fees, a farm takes orders, a startup needs to move fast, an established business needs to replace processes that no longer scale. We start with how yours actually works, then build software around it, not the other way around.</p>
           <div class="hero-actions">
-            <a href="https://wa.me/254748077609" class="btn btn-gold"><i class="fab fa-whatsapp"></i> Start Your Project</a>
-            <a href="portfolio.html" class="btn btn-outline-light"><i class="fas fa-briefcase"></i> View Case Studies</a>
+            <a href="https://wa.me/254748077609" class="btn btn-gold"><i class="fab fa-whatsapp"></i> Get a Quote</a>
+            <a href="portfolio.html" class="btn btn-outline-light"><i class="fas fa-briefcase"></i> See Our Work</a>
+          </div>
+          <div style="margin-top:22px; font-size:13px; color:rgba(255,255,255,0.75); display:flex; flex-wrap:wrap; gap:6px 14px;">
+            <span>Free Consultation</span><span style="opacity:0.5;">&middot;</span>
+            <span>Transparent Pricing</span><span style="opacity:0.5;">&middot;</span>
+            <span>Secure M-Pesa Integration</span><span style="opacity:0.5;">&middot;</span>
+            <span>Post-Launch Support</span>
           </div>
         </div>
         <div class="hero-visual">
           <div class="hero-card">
             <div class="hero-card-title">Built To Perform</div>
-            <div class="hero-stat-row">
-              <div class="hero-stat"><big>24/7</big><small>Always Online</small></div>
-              <div class="hero-stat"><big>Enterprise</big><small>Security</small></div>
-              <div class="hero-stat"><big>Tailored</big><small>To Your Business</small></div>
-              <div class="hero-stat"><big>Responsive</big><small>Every Device</small></div>
+            <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-bottom:20px;">
+              <div style="font-size:13.5px; color:#fff;"><i class="fas fa-check" style="color:var(--gold2); margin-right:6px;"></i>Fast Loading Websites</div>
+              <div style="font-size:13.5px; color:#fff;"><i class="fas fa-check" style="color:var(--gold2); margin-right:6px;"></i>M-Pesa Integration</div>
+              <div style="font-size:13.5px; color:#fff;"><i class="fas fa-check" style="color:var(--gold2); margin-right:6px;"></i>Mobile First</div>
+              <div style="font-size:13.5px; color:#fff;"><i class="fas fa-check" style="color:var(--gold2); margin-right:6px;"></i>Free SSL</div>
+              <div style="font-size:13.5px; color:#fff;"><i class="fas fa-check" style="color:var(--gold2); margin-right:6px;"></i>One Year Support</div>
+              <div style="font-size:13.5px; color:#fff;"><i class="fas fa-check" style="color:var(--gold2); margin-right:6px;"></i>WhatsApp Integration</div>
+              <div style="font-size:13.5px; color:#fff;"><i class="fas fa-check" style="color:var(--gold2); margin-right:6px;"></i>SEO Ready</div>
+              <div style="font-size:13.5px; color:#fff;"><i class="fas fa-check" style="color:var(--gold2); margin-right:6px;"></i>Secure Hosting</div>
             </div>
-            <div class="hero-tech-row">
-              <span class="hero-tech-tag">Django</span>
-              <span class="hero-tech-tag">PostgreSQL</span>
-              <span class="hero-tech-tag">M-Pesa</span>
-              <span class="hero-tech-tag">Docker</span>
-              <span class="hero-tech-tag">REST APIs</span>
             </div>
-          </div>
-        </div>
       </div>
     </div>
   </section>
+
+    <div style="background:var(--navy); text-align:center; padding:16px 0;">
+    <span style="font-size:12px; color:rgba(255,255,255,0.5); letter-spacing:0.5px;">Built with Django &middot; PostgreSQL &middot; M-Pesa Daraja API &middot; Docker &middot; REST APIs</span>
+  </div>
 
   <section class="section-cream">
     <div class="container">
@@ -697,6 +703,32 @@
       </div>
     </div>
   </section>
+
+  <section style="padding:70px 0; background:var(--cream);">
+    <div class="container">
+      <div class="section-header section-center">
+        <span class="section-label">Industries</span>
+        <h2 class="section-title">Built for Organizations Like Yours</h2>
+      </div>
+      <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:24px; margin-top:30px;">
+        <div style="background:#fff; border:1px solid rgba(212,168,83,0.25); border-radius:14px; padding:28px;">
+          <h3 style="font-size:18px; margin-bottom:10px; color:var(--navy);">Education</h3>
+          <p style="font-size:14px; color:var(--gray); line-height:1.6;">School ERP systems live for 1,000+ students - fees, portals, attendance, and M-Pesa collection.</p>
+        </div>
+        <div style="background:#fff; border:1px solid rgba(212,168,83,0.25); border-radius:14px; padding:28px;">
+          <h3 style="font-size:18px; margin-bottom:10px; color:var(--navy);">Agriculture</h3>
+          <p style="font-size:14px; color:var(--gray); line-height:1.6;">Order and catalogue platforms live for 700+ customers on a working poultry ordering system.</p>
+        </div>
+        <div style="background:#fff; border:1px solid rgba(212,168,83,0.25); border-radius:14px; padding:28px;">
+          <h3 style="font-size:18px; margin-bottom:10px; color:var(--navy);">Business & Startups</h3>
+          <p style="font-size:14px; color:var(--gray); line-height:1.6;">Custom systems and MVPs scoped around how your organization actually works.</p>
+        </div>
+      </div>
+      <div style="text-align:center; margin-top:36px;">
+        <a href="industries.html" class="btn btn-outline-navy">See All Industries <i class="fas fa-arrow-right"></i></a>
+      </div>
+    </div>
+  </section>
   </section>
 
   <!-- TESTIMONIALS -->
@@ -737,6 +769,7 @@
         <div class="why-item anim"><i class="fas fa-check-circle" style="color:var(--gold3);"></i><span style="color:var(--navy2);">Transparent pricing and communication throughout</span></div>
         <div class="why-item anim"><i class="fas fa-check-circle" style="color:var(--gold3);"></i><span style="color:var(--navy2);">Documentation handed over with every project</span></div>
         <div class="why-item anim"><i class="fas fa-check-circle" style="color:var(--gold3);"></i><span style="color:var(--navy2);">We stay on as a long-term technology partner</span></div>
+        <div class="why-item anim"><i class="fas fa-check-circle" style="color:var(--gold3);"></i><span style="color:var(--navy2);">Weekly progress updates while we build</span></div>
       </div>
     </div>
   </section>
