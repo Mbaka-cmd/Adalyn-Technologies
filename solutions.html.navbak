@@ -36,7 +36,7 @@
         <a href="index.html" class="nav-logo">
           <img src="logo.png" alt="Adalyn Technologies Logo" style="width:44px;height:44px;object-fit:contain;">
           <div class="nav-logo-text">
-            <strong>Adalyn<br>Technologies</strong>
+            <strong>Adalyn Technologies</strong>
             
           </div>
         </a>
@@ -44,13 +44,23 @@
         <ul class="nav-links" id="navLinks">
           <li><a href="index.html" class="nav-link-item">Home</a></li>
           <li><a href="about.html" class="nav-link-item">About</a></li>
-          <li><a href="solutions.html" class="nav-link-item">Services</a></li>
-          <li><a href="pricing.html" class="nav-link-item">Pricing</a></li>
-          <li><a href="insights.html" class="nav-link-item">Insights</a></li>
+          <li>
+            <a href="solutions.html" class="nav-link-item">Services <i class="fas fa-chevron-down chevron"></i></a>
+            <div class="dropdown-menu">
+              <a href="student_services.html">Student Services</a>
+              <a href="solutions.html#startup">Startup Solutions</a>
+              <a href="solutions.html#business">Business Solutions</a>
+              <a href="solutions.html#education">Education Solutions</a>
+              <a href="solutions.html#enterprise">Enterprise Solutions</a>
+              <a href="solutions.html#developer">Developer Services</a>
+              <a href="solutions.html#cloud">Cloud & M-Pesa</a>
+              <a href="proposal_generator.html">Proposal Generator</a>
+            </div>
+          </li>
           
           <li><a href="portfolio.html" class="nav-link-item">Portfolio</a></li>
-          
-          
+          <li><a href="pricing.html" class="nav-link-item">Pricing</a></li>
+          <li><a href="insights.html" class="nav-link-item">Insights</a></li>
           <li><a href="contact.html" class="nav-link-item">Contact</a></li>
           <li class="nav-search">
               <button class="nav-search-btn" onclick="toggleSearch()"><i class="fas fa-search"></i></button>
@@ -60,7 +70,7 @@
               </div>
           </li>
           <li><a href="https://mbaka-cmd.github.io/Adalyn-Rate-Card/" target="_blank" class="nav-link-item">Rate Card</a></li>
-          
+          <li><a href="https://wa.me/254748077609" target="_blank" class="nav-cta-link">Hire Us</a></li>
         </ul>
 
         <button class="hamburger" id="hamburgerBtn" aria-label="Toggle menu">
@@ -71,18 +81,23 @@
       <div class="mobile-nav-panel" id="mobileNavPanel">
         <a href="index.html">Home</a>
         <a href="about.html">About</a>
-        <a href="solutions.html">Services</a>
-        <a href="pricing.html">Pricing</a>
-        <a href="insights.html">Insights</a>
-        
-        
+        <div class="mobile-nav-group-label">Services</div>
+        <a href="student_services.html">Student Services</a>
+        <a href="solutions.html#startup">Startup Solutions</a>
+        <a href="solutions.html#business">Business Solutions</a>
+        <a href="solutions.html#education">Education Solutions</a>
+        <a href="solutions.html#enterprise">Enterprise Solutions</a>
+        <a href="solutions.html#developer">Developer Services</a>
+        <a href="solutions.html#cloud">Cloud & M-Pesa</a>
+        <a href="proposal_generator.html">Proposal Generator</a>
+        <div class="mobile-nav-group-label">Company</div>
         
         <a href="portfolio.html">Portfolio</a>
-
-
+        <a href="pricing.html">Pricing</a>
+        <a href="insights.html">Insights</a>
         <a href="contact.html">Contact</a>
         <a href="https://mbaka-cmd.github.io/Adalyn-Rate-Card/" target="_blank">Rate Card</a>
-        
+        <a href="https://wa.me/254748077609" target="_blank" style="color: var(--gold3); margin-top:8px;">Hire Us via WhatsApp</a>
       </div>
     </div>
   </nav>
@@ -135,7 +150,7 @@
         <div class="solution-copy">
           <span class="section-label">Business Solutions</span>
           <h2>Automate Operations, Cut the Manual Work</h2>
-          <p>Your team already knows the manual process is breaking. Invoicing that takes too long, records that live in three different places, reports nobody trusts. We build what replaces it - one reliable system your team actually wants to use.</p>
+          <p>If your team is still running the business on spreadsheets and WhatsApp groups, we build the software to replace that - inventory, HR, invoicing, customer records - all in one reliable system your team actually wants to use.</p>
           <a href="https://wa.me/254748077609" target="_blank" class="btn btn-gold">Request a Quote</a>
         </div>
       </div>
@@ -181,7 +196,7 @@
         <div class="solution-copy">
           <span class="section-label">Enterprise Solutions</span>
           <h2>Custom Software for Complex, High-Stakes Workflows</h2>
-          <p>Some systems can't afford to be wrong. When records are sensitive, audits are routine, and multiple departments depend on the same data, there's no room for software that almost works. We scope these projects carefully, with a discovery phase before any commitment.</p>
+          <p>Larger organizations need systems that hold up under audit, handle sensitive records correctly, and integrate with how multiple departments already work. We scope these projects carefully, with a discovery phase before any commitment.</p>
           <a href="https://wa.me/254748077609" target="_blank" class="btn btn-gold">Book a Discovery Call</a>
         </div>
       </div>
@@ -302,7 +317,7 @@
 
   <section class="cta-section">
     <div class="container">
-      <h2>Not Sure Where You Fit?</h2>
+      <h2>Not Sure Which Solution Fits?</h2>
       <p>Tell us about your organization and what you're trying to solve. We'll recommend the right approach - no obligation.</p>
       <div class="cta-actions">
         <a href="contact.html" class="btn btn-gold"><i class="fas fa-comment-dots"></i> Start Your Project</a>

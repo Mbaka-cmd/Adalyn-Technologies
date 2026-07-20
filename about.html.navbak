@@ -36,7 +36,7 @@
         <a href="index.html" class="nav-logo">
           <img src="logo.png" alt="Adalyn Technologies Logo" style="width:44px;height:44px;object-fit:contain;">
           <div class="nav-logo-text">
-            <strong>Adalyn<br>Technologies</strong>
+            <strong>Adalyn Technologies</strong>
             
           </div>
         </a>
@@ -44,13 +44,23 @@
         <ul class="nav-links" id="navLinks">
           <li><a href="index.html" class="nav-link-item">Home</a></li>
           <li><a href="about.html" class="nav-link-item">About</a></li>
-          <li><a href="solutions.html" class="nav-link-item">Services</a></li>
+          <li>
+            <a href="solutions.html" class="nav-link-item">Solutions <i class="fas fa-chevron-down chevron"></i></a>
+            <div class="dropdown-menu">
+              <a href="student_services.html">Student Services</a>
+              <a href="solutions.html#startup">Startup Solutions</a>
+              <a href="solutions.html#business">Business Solutions</a>
+              <a href="solutions.html#education">Education Solutions</a>
+              <a href="solutions.html#enterprise">Enterprise Solutions</a>
+              <a href="solutions.html#developer">Developer Services</a>
+              <a href="solutions.html#cloud">Cloud & M-Pesa</a>
+              <a href="proposal_generator.html">Proposal Generator</a>
+            </div>
+          </li>
+          <li><a href="industries.html" class="nav-link-item">Industries</a></li>
+          <li><a href="portfolio.html" class="nav-link-item">Portfolio</a></li>
           <li><a href="pricing.html" class="nav-link-item">Pricing</a></li>
           <li><a href="insights.html" class="nav-link-item">Insights</a></li>
-          
-          <li><a href="portfolio.html" class="nav-link-item">Portfolio</a></li>
-          
-          
           <li><a href="contact.html" class="nav-link-item">Contact</a></li>
           <li class="nav-search">
               <button class="nav-search-btn" onclick="toggleSearch()"><i class="fas fa-search"></i></button>
@@ -60,7 +70,7 @@
               </div>
             </li>
           <li><a href="https://mbaka-cmd.github.io/Adalyn-Rate-Card/" target="_blank" class="nav-link-item">Rate Card</a></li>
-            
+            <li><a href="https://wa.me/254748077609" target="_blank" class="nav-cta-link">Hire Us</a></li>
         </ul>
 
         <button class="hamburger" id="hamburgerBtn" aria-label="Toggle menu">
@@ -71,18 +81,23 @@
       <div class="mobile-nav-panel" id="mobileNavPanel">
         <a href="index.html">Home</a>
         <a href="about.html">About</a>
-        <a href="solutions.html">Services</a>
+        <div class="mobile-nav-group-label">Solutions</div>
+        <a href="student_services.html">Student Services</a>
+        <a href="solutions.html#startup">Startup Solutions</a>
+        <a href="solutions.html#business">Business Solutions</a>
+        <a href="solutions.html#education">Education Solutions</a>
+        <a href="solutions.html#enterprise">Enterprise Solutions</a>
+        <a href="solutions.html#developer">Developer Services</a>
+        <a href="solutions.html#cloud">Cloud & M-Pesa</a>
+        <a href="proposal_generator.html">Proposal Generator</a>
+        <div class="mobile-nav-group-label">Company</div>
+        <a href="industries.html">Industries</a>
+        <a href="portfolio.html">Portfolio</a>
         <a href="pricing.html">Pricing</a>
         <a href="insights.html">Insights</a>
-        
-        
-        
-        <a href="portfolio.html">Portfolio</a>
-
-
         <a href="contact.html">Contact</a>
         <a href="https://mbaka-cmd.github.io/Adalyn-Rate-Card/" target="_blank">Rate Card</a>
-        
+        <a href="https://wa.me/254748077609" target="_blank" style="color: var(--gold3); margin-top:8px;">Hire Us via WhatsApp</a>
       </div>
     </div>
   </nav>

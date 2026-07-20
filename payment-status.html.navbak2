@@ -43,7 +43,7 @@
         <a href="index.html" class="nav-logo">
           <img src="logo.png" alt="Adalyn Technologies Logo" style="width:44px;height:44px;object-fit:contain;">
           <div class="nav-logo-text">
-            <strong>Adalyn<br>Technologies</strong>
+            <strong>Adalyn Technologies</strong>
           </div>
         </a>
         <ul class="nav-links" id="navLinks">
@@ -64,9 +64,6 @@
       <div class="mobile-nav-panel" id="mobileNavPanel">
         <a href="index.html">Home</a>
         <a href="about.html">About</a>
-        <a href="solutions.html">Services</a>
-        <a href="pricing.html">Pricing</a>
-        <a href="insights.html">Insights</a>
         <a href="solutions.html">Solutions</a>
         
         <a href="portfolio.html">Portfolio</a>

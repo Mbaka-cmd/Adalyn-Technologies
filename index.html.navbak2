@@ -520,7 +520,7 @@
         <a href="#home" class="nav-logo">
           <img src="logo.png" alt="Adalyn Technologies Logo" style="width:44px;height:44px;object-fit:contain;">
           <div class="nav-logo-text">
-            <strong>Adalyn<br>Technologies</strong>
+            <strong>Adalyn Technologies</strong>
             
           </div>
         </a>
@@ -528,9 +528,21 @@
         <ul class="nav-links" id="navLinks">
           <li><a href="index.html" class="nav-link-item">Home</a></li>
           <li><a href="about.html" class="nav-link-item">About</a></li>
-          <li><a href="solutions.html" class="nav-link-item">Services</a></li>
-          <li><a href="pricing.html" class="nav-link-item">Pricing</a></li>
-          <li><a href="insights.html" class="nav-link-item">Insights</a></li>
+          <li>
+            <a href="solutions.html" class="nav-link-item">Services <i class="fas fa-chevron-down chevron"></i></a>
+            <div class="dropdown-menu">
+              <a href="student_services.html">Student Services</a>
+              <a href="solutions.html#startup">Startup Solutions</a>
+              <a href="solutions.html#business">Business Solutions</a>
+              <a href="solutions.html#education">Education Solutions</a>
+              <a href="solutions.html#enterprise">Enterprise Solutions</a>
+              <a href="solutions.html#developer">Developer Services</a>
+              <a href="solutions.html#cloud">Cloud & M-Pesa</a>
+              <a href="pricing.html">Pricing</a>
+              <a href="insights.html">Insights</a>
+              <a href="proposal_generator.html">Proposal Generator</a>
+            </div>
+          </li>
           
           <li><a href="portfolio.html" class="nav-link-item">Portfolio</a></li>
           
@@ -555,11 +567,18 @@
       <div class="mobile-nav-panel" id="mobileNavPanel">
         <a href="index.html">Home</a>
         <a href="about.html">About</a>
-        <a href="solutions.html">Services</a>
+        <div class="mobile-nav-group-label">Services</div>
+        <a href="student_services.html">Student Services</a>
+        <a href="solutions.html#startup">Startup Solutions</a>
+        <a href="solutions.html#business">Business Solutions</a>
+        <a href="solutions.html#education">Education Solutions</a>
+        <a href="solutions.html#enterprise">Enterprise Solutions</a>
+        <a href="solutions.html#developer">Developer Services</a>
+        <a href="solutions.html#cloud">Cloud & M-Pesa</a>
         <a href="pricing.html">Pricing</a>
-        <a href="insights.html">Insights</a>
-        
-        
+              <a href="insights.html">Insights</a>
+              <a href="proposal_generator.html">Proposal Generator</a>
+        <div class="mobile-nav-group-label">Company</div>
         
         <a href="portfolio.html">Portfolio</a>
 

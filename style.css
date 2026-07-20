@@ -635,7 +635,7 @@ footer { padding-top: 40px; padding-bottom: 20px; }
 
 /* Stronger, more visible brand lockup in nav */
 .nav-logo img { width: 46px; height: 46px; object-fit: contain; }
-.nav-logo-text strong { font-family: "Orbitron", sans-serif !important; font-size: 24px !important; font-weight: 800 !important; letter-spacing: 1.5px; text-transform: uppercase; white-space: nowrap; }
+.nav-logo-text strong { font-family: "Orbitron", sans-serif !important; font-size: 13px !important; font-weight: 800 !important; letter-spacing: 0.8px; text-transform: uppercase; line-height: 1.3; white-space: normal; }
 .nav-logo-text span {
   font-size: 12px !important;
   letter-spacing: 1px;
@@ -685,3 +685,10 @@ footer { padding-top: 40px; padding-bottom: 20px; }
 @media (max-width: 640px) {
   .featured-case-detail { grid-template-columns: 1fr; gap: 10px; }
 }
+
+.nav-search { display: none !important; }
+
+.nav-inner { justify-content: center !important; gap: 40px; }
+.nav-links { flex: 1; justify-content: center; }
+
+section:has(.solution-block) { padding: 20px 0; }
