@@ -1,9 +1,20 @@
-﻿*.bak
+﻿# Backup files
+*.bak
 *.bak2
 *.bak3
+
+# VS Code
 .vscode/
-adalyn_payments/
+
+# Python cache
 __pycache__/
 *.pyc
+
+# Environment
 .env
+
+# Ignore generated database only
+adalyn_payments/db.sqlite3
+
+# Ignore dump file
 adalyntech_index_dump.txt

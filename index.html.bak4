@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -682,7 +682,7 @@
     </div>
   </section>
 
-  <section style="padding:70px 0; background:#ffffff;">
+  <section style="padding:70px 0; background:var(--cream);">
     <div class="container">
       <div class="section-header section-center">
         <span class="section-label">Industries</span>

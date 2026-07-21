@@ -1,4 +1,4 @@
-:root {
+﻿:root {
       --navy:   #0f172a;
       --navy2:  #1e293b;
       --gold:   #d4a853;
@@ -18,7 +18,7 @@
     }
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; font-size: 16px; }
-    body { font-family: var(--font-b); color: var(--text); line-height: 1.6; background: #ffffff; }
+    body { font-family: var(--font-b); color: var(--text); line-height: 1.6; background: #fbdfe4; }
     a { text-decoration: none; color: inherit; }
     h1,h2,h3,h4,h5 { font-family: var(--font-d); line-height: 1.2; }
     img { max-width: 100%; display: block; }
