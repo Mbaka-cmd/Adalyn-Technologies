@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -33,8 +33,11 @@
 
         <ul class="nav-links" id="navLinks">
           <li><a href="index.html" class="nav-link-item">Home</a></li>
+          <li><a href="about.html" class="nav-link-item">About</a></li>
           <li><a href="solutions.html" class="nav-link-item">Services</a></li>
           <li><a href="pricing.html" class="nav-link-item">Pricing</a></li>
+          <li><a href="insights.html" class="nav-link-item">Insights</a></li>
+          
           <li><a href="portfolio.html" class="nav-link-item">Portfolio</a></li>
           
           
@@ -46,7 +49,9 @@
                 <div class="nav-search-results" id="navSearchResults"></div>
               </div>
           </li>
-          </ul>
+          <li><a href="https://mbaka-cmd.github.io/Adalyn-Rate-Card/" target="_blank" class="nav-link-item">Rate Card</a></li>
+          
+        </ul>
 
         <div class="nav-social-icons">
           <a href="https://wa.me/254748077609" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>

@@ -32,8 +32,11 @@
 
         <ul class="nav-links" id="navLinks">
           <li><a href="index.html" class="nav-link-item">Home</a></li>
+          <li><a href="about.html" class="nav-link-item">About</a></li>
           <li><a href="solutions.html" class="nav-link-item">Services</a></li>
           <li><a href="pricing.html" class="nav-link-item">Pricing</a></li>
+          <li><a href="insights.html" class="nav-link-item">Insights</a></li>
+          
           <li><a href="portfolio.html" class="nav-link-item">Portfolio</a></li>
           
           
@@ -45,7 +48,9 @@
                 <div class="nav-search-results" id="navSearchResults"></div>
               </div>
           </li>
-          </ul>
+          <li><a href="https://mbaka-cmd.github.io/Adalyn-Rate-Card/" target="_blank" class="nav-link-item">Rate Card</a></li>
+          
+        </ul>
 
         <div class="nav-social-icons">
           <a href="https://wa.me/254748077609" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
@@ -272,9 +277,6 @@
         <div class="blog-card anim"><div class="blog-thumb"><i class="fas fa-school"></i></div><div class="blog-info"><span class="insight-cat-tag">Education</span><div class="blog-meta"><span><i class="far fa-calendar"></i> 2026</span><span>6 min read</span></div><h3>How a School Management System Reduces Payment Disputes by 70%</h3><p>A breakdown of the webhook architecture and idempotent retry logic that makes M-Pesa payments reliable in a school environment.</p><a href="insights.html" class="blog-read-more">Read Article <i class="fas fa-arrow-right"></i></a></div></div>
         <div class="blog-card anim"><div class="blog-thumb"><i class="fas fa-briefcase"></i></div><div class="blog-info"><span class="insight-cat-tag">Business</span><div class="blog-meta"><span><i class="far fa-calendar"></i> 2026</span><span>4 min read</span></div><h3>Spreadsheets to Software: When It's Time to Upgrade</h3><p>The signs that manual processes are costing a business more than the price of a proper system - and how to make the case internally.</p><a href="insights.html" class="blog-read-more">Read Article <i class="fas fa-arrow-right"></i></a></div></div>
         
-      </div>
-      <div style="text-align:center; margin-top:40px;">
-        <a href="insights.html" class="btn btn-outline-light">See All Insights <i class="fas fa-arrow-right"></i></a>
       </div>
     </div>
   </section>

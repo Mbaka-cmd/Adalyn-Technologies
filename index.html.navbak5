@@ -516,8 +516,11 @@
 
         <ul class="nav-links" id="navLinks">
           <li><a href="index.html" class="nav-link-item">Home</a></li>
+          <li><a href="about.html" class="nav-link-item">About</a></li>
           <li><a href="solutions.html" class="nav-link-item">Services</a></li>
           <li><a href="pricing.html" class="nav-link-item">Pricing</a></li>
+          <li><a href="insights.html" class="nav-link-item">Insights</a></li>
+          
           <li><a href="portfolio.html" class="nav-link-item">Portfolio</a></li>
           
           
@@ -529,7 +532,9 @@
                 <div class="nav-search-results" id="navSearchResults"></div>
               </div>
           </li>
-          </ul>
+          <li><a href="https://mbaka-cmd.github.io/Adalyn-Rate-Card/" target="_blank" class="nav-link-item">Rate Card</a></li>
+          
+        </ul>
 
         <div class="nav-social-icons">
           <a href="https://wa.me/254748077609" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
@@ -650,7 +655,7 @@
               <div class="case-detail-item"><strong>Problem:</strong> Schools relied on manual fee collection and reporting, causing payment disputes and slow report card turnaround.</div>
               <div class="case-detail-item" style="margin-top:8px;"><strong>Result:</strong> 1,000+ students managed; 70% fewer payment disputes; 500+ report cards and 2,000+ SMS alerts automated per term.</div>
             </div>
-            <div style="margin-top:14px;"><a href="https://school-management-system-final-1.onrender.com/" target="_blank" class="portfolio-link">Open Live System <i class="fas fa-arrow-right"></i></a> &nbsp; <a href="demo-video.html" class="portfolio-link">Demo Video <i class="fas fa-play-circle"></i></a></div>
+            <div style="margin-top:14px;"><a href="https://school-management-system-final-1.onrender.com/" target="_blank" class="portfolio-link">Open Live System <i class="fas fa-arrow-right"></i></a></div>
           </div>
         </div>
 
@@ -673,6 +678,21 @@
       </div>
       <div style="text-align:center; margin-top:40px;">
         <a href="portfolio.html" class="btn btn-outline-light" style="color:var(--navy);">See All Case Studies <i class="fas fa-arrow-right"></i></a>
+      </div>
+    </div>
+  </section>
+  <section style="padding:70px 0; background:var(--navy); color:#fff;">
+    <div class="container">
+      <div class="section-header section-center">
+        <span class="section-label">In Action</span>
+        <h2 class="section-title" style="color:#fff;">See the System Behind the Numbers</h2>
+        <p style="color:rgba(255,255,255,0.75);">A look inside the Chuka Girls admin dashboard - fee management, library records, and the day-to-day tools staff use to run the school.</p>
+      </div>
+      <div style="max-width:900px; margin:36px auto 0;">
+        <video controls style="width:100%; border-radius:14px; box-shadow:var(--shadow);" poster="chuka-girls.jpg">
+          <source src="chuka-girls-admin-demo.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
       </div>
     </div>
   </section>

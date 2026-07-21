@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -37,6 +37,7 @@
         </a>
         <ul class="nav-links" id="navLinks">
           <li><a href="index.html" class="nav-link-item">Home</a></li>
+          <li><a href="about.html" class="nav-link-item">About</a></li>
           <li><a href="solutions.html" class="nav-link-item">Solutions</a></li>
           
           <li><a href="portfolio.html" class="nav-link-item">Portfolio</a></li>
