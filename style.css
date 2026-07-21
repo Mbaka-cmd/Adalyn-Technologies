@@ -225,7 +225,7 @@
     .hero h1 em { font-style: normal; color: var(--gold2); }
     .hero p { font-size: 18px; opacity: 0.88; line-height: 1.75; margin-bottom: 36px; max-width: 500px; }
     .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; }
-    .hero-visual { display: flex; align-items: center; justify-content: center; }
+    .hero-visual { display: flex; align-items: flex-end; justify-content: center; }
     .hero-card {
       background: rgba(255,255,255,0.06);
       border: 1px solid rgba(255,255,255,0.12);
