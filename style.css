@@ -176,9 +176,9 @@
       text-transform: uppercase; letter-spacing: 2px;
       color: var(--gold3); display: block; margin-bottom: 10px;
     }
-    .section-title { font-size: 40px; color: var(--navy); margin-bottom: 14px; }
+    .section-title { font-size: 32px; color: var(--navy); margin-bottom: 12px; }
     .section-navy .section-title { color: #fff; }
-    .section-sub { font-size: 17px; color: var(--gray); max-width: 580px; }
+    .section-sub { font-size: 15px; color: var(--gray); max-width: 580px; }
     .section-center { text-align: center; }
     .section-center .section-sub { margin: 0 auto; }
     .section-header { margin-bottom: 55px; }
@@ -221,9 +221,9 @@
       margin-bottom: 24px;
     }
     .hero-eyebrow span { width: 6px; height: 6px; background: var(--gold); border-radius: 50%; flex-shrink: 0; }
-    .hero h1 { font-size: 58px; line-height: 1.08; margin-bottom: 22px; }
+    .hero h1 { font-size: 46px; line-height: 1.12; margin-bottom: 18px; }
     .hero h1 em { font-style: normal; color: var(--gold2); }
-    .hero p { font-size: 18px; opacity: 0.88; line-height: 1.75; margin-bottom: 36px; max-width: 500px; }
+    .hero p { font-size: 16px; opacity: 0.88; line-height: 1.7; margin-bottom: 28px; max-width: 500px; }
     .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; }
     .hero-visual { display: flex; align-items: flex-end; justify-content: center; }
     .hero-card {
@@ -419,8 +419,8 @@
     /* CTA */
     .cta-section { background: linear-gradient(135deg, var(--navy) 0%, #1a2744 100%); text-align: center; padding: 55px 0; position: relative; overflow: hidden; }
     .cta-section::before { content: ''; position: absolute; width: 600px; height: 600px; background: radial-gradient(circle, rgba(212,168,83,0.1) 0%, transparent 65%); top: -200px; right: -200px; }
-    .cta-section h2 { font-size: 42px; color: #fff; margin-bottom: 16px; }
-    .cta-section p { font-size: 18px; color: rgba(255,255,255,0.8); max-width: 600px; margin: 0 auto 38px; }
+    .cta-section h2 { font-size: 32px; color: #fff; margin-bottom: 14px; }
+    .cta-section p { font-size: 16px; color: rgba(255,255,255,0.8); max-width: 600px; margin: 0 auto 28px; }
     .cta-actions { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; position: relative; z-index: 1; }
 
     /* FOOTER */
