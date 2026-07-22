@@ -15,6 +15,49 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+  <style>
+    .rc-section { padding: 70px 0; background: #ffffff; }
+    .rc-container { max-width: 1000px; margin: 0 auto; padding: 0 20px; }
+    .rc-doc-builder { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; align-items: start; }
+    .rc-doc-form { background: var(--cream); border: 1px solid rgba(212,168,83,0.3); border-radius: 1rem; padding: 1.75rem; }
+    .rc-form-row { margin-bottom: 1rem; }
+    .rc-form-row label { display: block; font-size: 0.8rem; font-weight: 600; color: var(--navy); margin-bottom: 0.35rem; text-transform: uppercase; letter-spacing: 0.3px; }
+    .rc-form-row input, .rc-form-row textarea { width: 100%; padding: 0.6rem 0.75rem; border: 1px solid rgba(212,168,83,0.35); border-radius: 0.5rem; font-family: inherit; font-size: 0.9rem; background: white; }
+    .rc-form-row input:focus, .rc-form-row textarea:focus { outline: none; border-color: var(--gold); box-shadow: 0 0 0 3px rgba(212,168,83,0.15); }
+    .rc-form-row-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; }
+    .rc-line-items-title { font-size: 0.8rem; font-weight: 700; color: var(--gold3); text-transform: uppercase; letter-spacing: 0.5px; margin: 1.25rem 0 0.75rem; }
+    .rc-line-item-row { border: 1px solid rgba(212,168,83,0.25); border-radius: 0.6rem; padding: 0.85rem; margin-bottom: 0.75rem; background: rgba(255,255,255,0.6); position: relative; }
+    .rc-line-item-row .rc-remove-line { position: absolute; top: 0.5rem; right: 0.5rem; background: none; border: none; color: #ef4444; cursor: pointer; font-size: 0.9rem; }
+    .rc-line-item-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 0.5rem; }
+    .rc-line-item-grid label { font-size: 0.7rem; }
+    .rc-add-line-btn { width: 100%; padding: 0.6rem; border: 1.5px dashed var(--gold); border-radius: 0.5rem; background: transparent; color: var(--gold3); font-weight: 600; font-size: 0.85rem; cursor: pointer; margin-bottom: 1.25rem; font-family: inherit; }
+    .rc-add-line-btn:hover { background: rgba(212,168,83,0.1); }
+    .rc-doc-preview-wrap { position: sticky; top: 1rem; }
+    .rc-doc-preview { background: white; border-radius: 1rem; padding: 2.25rem; box-shadow: var(--shadow); min-height: 300px; }
+    .rc-doc-preview-header { display: flex; justify-content: space-between; align-items: flex-start; border-bottom: 3px solid var(--gold); padding-bottom: 1.1rem; margin-bottom: 1.25rem; }
+    .rc-doc-preview-header h3 { font-family: var(--font-d); font-size: 1.4rem; color: var(--navy); }
+    .rc-doc-preview-header .rc-brand-tag { font-size: 0.78rem; color: var(--gray); }
+    .rc-doc-preview-header .rc-doc-meta { text-align: right; font-size: 0.78rem; color: var(--gray); }
+    .rc-doc-preview-header .rc-doc-meta strong { color: var(--navy); }
+    .rc-doc-bill-to { margin-bottom: 1.25rem; font-size: 0.9rem; }
+    .rc-doc-bill-to .rc-label { font-size: 0.72rem; font-weight: 700; color: var(--gold3); text-transform: uppercase; letter-spacing: 0.4px; margin-bottom: 0.3rem; }
+    .rc-doc-items-table { width: 100%; border-collapse: collapse; margin-bottom: 1.25rem; font-size: 0.85rem; }
+    .rc-doc-items-table th { text-align: left; border-bottom: 2px solid var(--navy); padding: 0.5rem 0.4rem; font-size: 0.72rem; text-transform: uppercase; color: var(--navy); }
+    .rc-doc-items-table td { padding: 0.55rem 0.4rem; border-bottom: 1px solid rgba(212,168,83,0.2); color: var(--navy2); }
+    .rc-doc-items-table td.rc-num, .rc-doc-items-table th.rc-num { text-align: right; }
+    .rc-doc-totals { display: flex; justify-content: flex-end; }
+    .rc-doc-totals td { padding: 0.3rem 0.6rem; font-size: 0.9rem; }
+    .rc-doc-totals .rc-total-row td { font-weight: 700; font-size: 1.05rem; color: var(--navy); border-top: 2px solid var(--gold); }
+    .rc-doc-notes { margin-top: 1.5rem; font-size: 0.82rem; color: var(--gray); line-height: 1.6; }
+    .rc-doc-notes strong { color: var(--navy); }
+    .rc-doc-actions { display: flex; gap: 0.75rem; margin-top: 1.25rem; flex-wrap: wrap; }
+    .rc-empty-preview-msg { text-align: center; color: var(--gray2); padding: 3rem 1rem; font-size: 0.9rem; }
+    @media (max-width: 900px) {
+      .rc-doc-builder { grid-template-columns: 1fr; }
+      .rc-doc-preview-wrap { position: static; }
+      .rc-form-row-grid, .rc-line-item-grid { grid-template-columns: 1fr; }
+    }
+  </style>
 </head>
 <body>
   
@@ -192,7 +235,91 @@
         <a href="contact.html" class="btn btn-outline-navy">Request a Custom Quote</a>
       </div>
     </div>
+  </section>  <section class="rc-section">
+    <div class="rc-container">
+      <div class="section-header section-center">
+        <span class="section-label">Tools</span>
+        <h2 class="section-title">Invoice Maker</h2>
+        <p class="section-sub" style="margin:0 auto;">Generate a professional invoice in seconds.</p>
+      </div>
+
+      <div class="rc-doc-builder" style="margin-top:36px;">
+        <div class="rc-doc-form">
+          <div class="rc-form-row">
+            <label>Client Name</label>
+            <input type="text" id="inv_clientName" placeholder="e.g. Ishmael Otieno">
+          </div>
+          <div class="rc-form-row-grid">
+            <div class="rc-form-row"><label>Client Email</label><input type="email" id="inv_clientEmail" placeholder="client@email.com"></div>
+            <div class="rc-form-row"><label>Client Phone</label><input type="text" id="inv_clientPhone" placeholder="07XX XXX XXX"></div>
+          </div>
+          <div class="rc-form-row-grid">
+            <div class="rc-form-row"><label>Invoice Number</label><input type="text" id="inv_number"></div>
+            <div class="rc-form-row"><label>Invoice Date</label><input type="date" id="inv_date"></div>
+          </div>
+
+          <div class="rc-line-items-title">Line Items</div>
+          <div id="inv_lineItems"></div>
+          <button class="rc-add-line-btn" id="inv_addLine" type="button"><i class="fas fa-plus"></i> Add Line Item</button>
+
+          <div class="rc-form-row"><label>Deposit Received (KES, optional)</label><input type="number" id="inv_deposit" placeholder="e.g. 30000"></div>
+          <div class="rc-form-row">
+            <label>Payment Details / Notes</label>
+            <textarea id="inv_notes" rows="3">M-Pesa Number: 0748077609 - Mercy Mbaka
+Balance due upon project completion.</textarea>
+          </div>
+        </div>
+
+        <div class="rc-doc-preview-wrap">
+          <div class="rc-doc-preview" id="inv_preview"></div>
+          <div class="rc-doc-actions">
+            <button class="btn btn-gold" id="inv_downloadBtn"><i class="fas fa-download"></i> Download Invoice (PDF)</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>  <section class="rc-section" style="background:var(--cream);">
+    <div class="rc-container">
+      <div class="section-header section-center">
+        <span class="section-label">Tools</span>
+        <h2 class="section-title">Quotation Maker</h2>
+        <p class="section-sub" style="margin:0 auto;">Turn a conversation into a proposal.</p>
+      </div>
+
+      <div class="rc-doc-builder" style="margin-top:36px;">
+        <div class="rc-doc-form">
+          <div class="rc-form-row"><label>Client / Company Name</label><input type="text" id="quo_clientName" placeholder="e.g. Skytrail Logistics"></div>
+          <div class="rc-form-row-grid">
+            <div class="rc-form-row"><label>Client Email</label><input type="email" id="quo_clientEmail" placeholder="client@email.com"></div>
+            <div class="rc-form-row"><label>Client Phone</label><input type="text" id="quo_clientPhone" placeholder="07XX XXX XXX"></div>
+          </div>
+          <div class="rc-form-row"><label>Project / Request Summary</label><input type="text" id="quo_project" placeholder="e.g. Export logistics tracking platform"></div>
+          <div class="rc-form-row-grid">
+            <div class="rc-form-row"><label>Quotation Number</label><input type="text" id="quo_number"></div>
+            <div class="rc-form-row"><label>Valid Until</label><input type="date" id="quo_validUntil"></div>
+          </div>
+
+          <div class="rc-line-items-title">Proposed Services</div>
+          <div id="quo_lineItems"></div>
+          <button class="rc-add-line-btn" id="quo_addLine" type="button"><i class="fas fa-plus"></i> Add Line Item</button>
+
+          <div class="rc-form-row">
+            <label>Terms &amp; Notes</label>
+            <textarea id="quo_notes" rows="3">50% deposit to commence work, balance on delivery. Timeline and scope confirmed upon acceptance.</textarea>
+          </div>
+        </div>
+
+        <div class="rc-doc-preview-wrap">
+          <div class="rc-doc-preview" id="quo_preview"></div>
+          <div class="rc-doc-actions">
+            <button class="btn btn-gold" id="quo_downloadBtn"><i class="fas fa-download"></i> Download Quotation (PDF)</button>
+          </div>
+        </div>
+      </div>
+    </div>
   </section>
+
+
 
   <section class="section-cream">
     <div class="container">
@@ -238,7 +365,152 @@
     </div>
   </footer>
 
-  <script src="main.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+  <script>
+function rcFormatKES(amount) {
+  return "KES " + Math.round(amount).toLocaleString("en-KE");
+}
+
+function rcDownloadAsPDF(sourceElementId, suggestedFilename) {
+  const source = document.getElementById(sourceElementId);
+  if (!source || !source.innerHTML.trim()) { alert("Fill in the details first."); return; }
+  const clone = source.cloneNode(true);
+  clone.style.width = "800px";
+  clone.style.margin = "0 auto";
+  clone.style.position = "fixed";
+  clone.style.top = "-9999px";
+  clone.style.left = "-9999px";
+  document.body.appendChild(clone);
+  const opt = {
+    margin: [0.5, 0.5, 0.5, 0.5],
+    filename: suggestedFilename,
+    image: { type: "jpeg", quality: 0.98 },
+    html2canvas: { scale: 2, useCORS: true, logging: false },
+    jsPDF: { unit: "in", format: "a4", orientation: "portrait" }
+  };
+  html2pdf().set(opt).from(clone).save().then(() => { document.body.removeChild(clone); }).catch(() => { document.body.removeChild(clone); alert("PDF generation failed. Try Print > Save as PDF instead."); });
+}
+
+function rcCreateLineItemRow(containerId, onChange) {
+  const container = document.getElementById(containerId);
+  const row = document.createElement("div");
+  row.className = "rc-line-item-row";
+  row.innerHTML = '<button type="button" class="rc-remove-line" aria-label="Remove line"><i class="fas fa-times"></i></button><div class="rc-line-item-grid"><div><label>Description</label><input type="text" class="rc-line-desc" placeholder="Service description"></div><div><label>Qty</label><input type="number" class="rc-line-qty" value="1" min="1"></div><div><label>Unit Price (KES)</label><input type="number" class="rc-line-price" placeholder="0"></div></div>';
+  container.appendChild(row);
+  row.querySelector(".rc-remove-line").addEventListener("click", () => { row.remove(); onChange(); });
+  row.querySelectorAll("input").forEach(input => input.addEventListener("input", onChange));
+  return row;
+}
+
+function rcGetLineItems(containerId) {
+  const rows = document.querySelectorAll("#" + containerId + " .rc-line-item-row");
+  return Array.from(rows).map(row => {
+    const desc = row.querySelector(".rc-line-desc").value.trim();
+    const qty = parseFloat(row.querySelector(".rc-line-qty").value) || 0;
+    const price = parseFloat(row.querySelector(".rc-line-price").value) || 0;
+    return { desc: desc, qty: qty, price: price, total: qty * price };
+  }).filter(item => item.desc || item.price);
+}
+
+document.getElementById("inv_number").value = "INV-" + Date.now().toString().slice(-8);
+document.getElementById("inv_date").value = new Date().toISOString().split("T")[0];
+
+function rcRenderInvoicePreview() {
+  const clientName = document.getElementById("inv_clientName").value.trim();
+  const clientEmail = document.getElementById("inv_clientEmail").value.trim();
+  const clientPhone = document.getElementById("inv_clientPhone").value.trim();
+  const invNumber = document.getElementById("inv_number").value.trim();
+  const invDate = document.getElementById("inv_date").value;
+  const deposit = parseFloat(document.getElementById("inv_deposit").value) || 0;
+  const notes = document.getElementById("inv_notes").value.trim();
+  const items = rcGetLineItems("inv_lineItems");
+  const preview = document.getElementById("inv_preview");
+
+  if (!clientName && items.length === 0) {
+    preview.innerHTML = '<div class="rc-empty-preview-msg">Fill in client details and at least one line item to see the invoice preview here.</div>';
+    return;
+  }
+
+  const subtotal = items.reduce((sum, i) => sum + i.total, 0);
+  const balance = subtotal - deposit;
+  const dateFormatted = invDate ? new Date(invDate).toLocaleDateString("en-KE", { year: "numeric", month: "long", day: "numeric" }) : "";
+
+  let itemsRows = "";
+  items.forEach(i => {
+    itemsRows += "<tr><td>" + i.desc + "</td><td class=\"rc-num\">" + i.qty + "</td><td class=\"rc-num\">" + rcFormatKES(i.price) + "</td><td class=\"rc-num\">" + rcFormatKES(i.total) + "</td></tr>";
+  });
+
+  preview.innerHTML =
+    '<div class="rc-doc-preview-header"><div><h3>Adalyn Technologies</h3><div class="rc-brand-tag">official.mercymbaka@gmail.com &middot; 0748077609</div></div><div class="rc-doc-meta"><div><strong>INVOICE</strong></div><div>' + invNumber + '</div><div>' + dateFormatted + '</div></div></div>' +
+    '<div class="rc-doc-bill-to"><div class="rc-label">Bill To</div><div>' + (clientName || "-") + '</div>' + (clientEmail ? "<div>" + clientEmail + "</div>" : "") + (clientPhone ? "<div>" + clientPhone + "</div>" : "") + '</div>' +
+    '<table class="rc-doc-items-table"><thead><tr><th>Description</th><th class="rc-num">Qty</th><th class="rc-num">Unit Price</th><th class="rc-num">Total</th></tr></thead><tbody>' + itemsRows + '</tbody></table>' +
+    '<div class="rc-doc-totals"><table><tr><td>Subtotal</td><td class="rc-num">' + rcFormatKES(subtotal) + '</td></tr>' + (deposit > 0 ? '<tr><td>Deposit Received</td><td class="rc-num">- ' + rcFormatKES(deposit) + '</td></tr>' : '') + '<tr class="rc-total-row"><td>' + (deposit > 0 ? "Balance Due" : "Total Due") + '</td><td class="rc-num">' + rcFormatKES(deposit > 0 ? balance : subtotal) + '</td></tr></table></div>' +
+    (notes ? '<div class="rc-doc-notes"><strong>Notes:</strong><br>' + notes.replace(/\n/g, "<br>") + '</div>' : '');
+}
+
+rcCreateLineItemRow("inv_lineItems", rcRenderInvoicePreview);
+document.getElementById("inv_addLine").addEventListener("click", () => rcCreateLineItemRow("inv_lineItems", rcRenderInvoicePreview));
+["inv_clientName","inv_clientEmail","inv_clientPhone","inv_number","inv_date","inv_deposit","inv_notes"].forEach(id => {
+  document.getElementById(id).addEventListener("input", rcRenderInvoicePreview);
+});
+rcRenderInvoicePreview();
+
+document.getElementById("inv_downloadBtn").addEventListener("click", () => {
+  const invNumber = document.getElementById("inv_number").value.trim() || "invoice";
+  rcDownloadAsPDF("inv_preview", invNumber + ".pdf");
+});
+</script>
+<script>
+document.getElementById("quo_number").value = "QUO-" + Date.now().toString().slice(-8);
+var rcValidUntilDate = new Date();
+rcValidUntilDate.setDate(rcValidUntilDate.getDate() + 30);
+document.getElementById("quo_validUntil").value = rcValidUntilDate.toISOString().split("T")[0];
+
+function rcRenderQuotationPreview() {
+  const clientName = document.getElementById("quo_clientName").value.trim();
+  const clientEmail = document.getElementById("quo_clientEmail").value.trim();
+  const clientPhone = document.getElementById("quo_clientPhone").value.trim();
+  const project = document.getElementById("quo_project").value.trim();
+  const quoNumber = document.getElementById("quo_number").value.trim();
+  const validUntil = document.getElementById("quo_validUntil").value;
+  const notes = document.getElementById("quo_notes").value.trim();
+  const items = rcGetLineItems("quo_lineItems");
+  const preview = document.getElementById("quo_preview");
+
+  if (!clientName && items.length === 0) {
+    preview.innerHTML = '<div class="rc-empty-preview-msg">Fill in client details and at least one line item to see the quotation preview here.</div>';
+    return;
+  }
+
+  const subtotal = items.reduce((sum, i) => sum + i.total, 0);
+  const validFormatted = validUntil ? new Date(validUntil).toLocaleDateString("en-KE", { year: "numeric", month: "long", day: "numeric" }) : "";
+
+  let itemsRows = "";
+  items.forEach(i => {
+    itemsRows += "<tr><td>" + i.desc + "</td><td class=\"rc-num\">" + i.qty + "</td><td class=\"rc-num\">" + rcFormatKES(i.price) + "</td><td class=\"rc-num\">" + rcFormatKES(i.total) + "</td></tr>";
+  });
+
+  preview.innerHTML =
+    '<div class="rc-doc-preview-header"><div><h3>Adalyn Technologies</h3><div class="rc-brand-tag">official.mercymbaka@gmail.com &middot; 0748077609</div></div><div class="rc-doc-meta"><div><strong>QUOTATION</strong></div><div>' + quoNumber + '</div><div>Valid until ' + validFormatted + '</div></div></div>' +
+    '<div class="rc-doc-bill-to"><div class="rc-label">Prepared For</div><div>' + (clientName || "-") + '</div>' + (clientEmail ? "<div>" + clientEmail + "</div>" : "") + (clientPhone ? "<div>" + clientPhone + "</div>" : "") + (project ? '<div style="margin-top:0.5rem;"><strong>Project:</strong> ' + project + '</div>' : '') + '</div>' +
+    '<table class="rc-doc-items-table"><thead><tr><th>Proposed Service</th><th class="rc-num">Qty</th><th class="rc-num">Unit Price</th><th class="rc-num">Total</th></tr></thead><tbody>' + itemsRows + '</tbody></table>' +
+    '<div class="rc-doc-totals"><table><tr class="rc-total-row"><td>Estimated Total Investment</td><td class="rc-num">' + rcFormatKES(subtotal) + '</td></tr></table></div>' +
+    (notes ? '<div class="rc-doc-notes"><strong>Terms:</strong><br>' + notes.replace(/\n/g, "<br>") + '</div>' : '');
+}
+
+rcCreateLineItemRow("quo_lineItems", rcRenderQuotationPreview);
+document.getElementById("quo_addLine").addEventListener("click", () => rcCreateLineItemRow("quo_lineItems", rcRenderQuotationPreview));
+["quo_clientName","quo_clientEmail","quo_clientPhone","quo_project","quo_number","quo_validUntil","quo_notes"].forEach(id => {
+  document.getElementById(id).addEventListener("input", rcRenderQuotationPreview);
+});
+rcRenderQuotationPreview();
+
+document.getElementById("quo_downloadBtn").addEventListener("click", () => {
+  const quoNumber = document.getElementById("quo_number").value.trim() || "quotation";
+  rcDownloadAsPDF("quo_preview", quoNumber + ".pdf");
+});
+</script>
+<script src="main.js"></script>
 
 </body>
 </html>
