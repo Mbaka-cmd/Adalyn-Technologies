@@ -29,6 +29,32 @@ define('MPESA_CALLBACK_URL', 'https://yourdomain.com/mpesa_callback.php'); // mu
 // =====================================================================
 
 $dataFile = __DIR__ . '/payments_data.json';
+$rateLimitFile = __DIR__ . '/rate_limits.json';
+
+function checkRateLimit($key, $maxAttempts, $windowSeconds) {
+    global $rateLimitFile;
+    $limits = [];
+    if (file_exists($rateLimitFile)) {
+        $limits = json_decode(file_get_contents($rateLimitFile), true) ?: [];
+    }
+    $now = time();
+    foreach ($limits as $k => $entry) {
+        if ($now - $entry['first'] > $windowSeconds) unset($limits[$k]);
+    }
+    if (!isset($limits[$key])) {
+        $limits[$key] = ['count' => 0, 'first' => $now];
+    }
+    if ($now - $limits[$key]['first'] > $windowSeconds) {
+        $limits[$key] = ['count' => 0, 'first' => $now];
+    }
+    $limits[$key]['count']++;
+    file_put_contents($rateLimitFile, json_encode($limits));
+    return $limits[$key]['count'] <= $maxAttempts;
+}
+
+function getClientIp() {
+    return $_SERVER['HTTP_X_FORWARDED_FOR'] ?? $_SERVER['REMOTE_ADDR'] ?? 'unknown';
+}
 
 function loadData($file) {
     if (!file_exists($file)) return ['quotations' => []];
@@ -189,6 +215,11 @@ if ($method === 'POST' && $action === 'set_stage') {
 
 // ---- Client: look up a quotation by reference ----
 if ($method === 'GET' && $action === 'get') {
+    if (!checkRateLimit('get_' . getClientIp(), 3, 300)) {
+        http_response_code(429);
+        echo json_encode(['success' => false, 'error' => 'Too many attempts. Please wait a few minutes and try again.']);
+        exit;
+    }
     $ref = $_GET['reference'] ?? '';
     foreach ($data['quotations'] as $q) {
         if ($q['reference'] === $ref) {
@@ -204,6 +235,11 @@ if ($method === 'GET' && $action === 'get') {
 // ---- Client: trigger STK Push for deposit or balance ----
 if ($method === 'POST' && $action === 'pay') {
     $ref = $input['reference'] ?? '';
+    if (!checkRateLimit('pay_ip_' . getClientIp(), 2, 1800) || !checkRateLimit('pay_ref_' . $ref, 2, 1800)) {
+        http_response_code(429);
+        echo json_encode(['success' => false, 'error' => 'Too many payment attempts for this request. Please wait 30 minutes and try again, or contact us on WhatsApp.']);
+        exit;
+    }
     $phone = trim($input['phone'] ?? '');
     $paymentType = $input['payment_type'] ?? '';
 

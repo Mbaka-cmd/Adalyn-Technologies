@@ -20,3 +20,7 @@ adalyn_payments/db.sqlite3
 adalyntech_index_dump.txt
 
 *.bak*
+
+# Payment data and rate limiting - contains live client info, never commit
+payments_data.json
+rate_limits.json
